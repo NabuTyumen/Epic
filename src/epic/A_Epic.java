@@ -3,7 +3,8 @@ package epic;
 /**
  * @author Bruno
  *
- *The simplest and less structured mean
+ *The simplest 
+ *and less structured mean
  *to write our Epic
  *
  */
