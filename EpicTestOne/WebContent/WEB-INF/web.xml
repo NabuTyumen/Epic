@@ -9,6 +9,6 @@
 
     <servlet-mapping>
         <servlet-name>EpicServlet</servlet-name>
-        <url-pattern>*.html</url-pattern>
+        <url-pattern>/epic</url-pattern>
     </servlet-mapping>
     </web-app>  

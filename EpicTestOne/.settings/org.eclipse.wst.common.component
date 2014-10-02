@@ -2,7 +2,7 @@
     <wb-module deploy-name="Epic">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Epic"/>
         <property name="java-output-path" value="/Epic/bin"/>
+        <property name="context-root" value="epic"/>
     </wb-module>
 </project-modules>
