@@ -44,6 +44,7 @@ public class EpicServlet extends HttpServlet {
 	    	  out.println("<p>"+a.write()+"</p>");
 			}
 	      
+	      out.println("<div>");
 	      out.println("<p>Typemime de la requête :"
 	    	        +request.getContentType()+"</p>");
 	    	      out.println("<p>Protocolede la requête :"
@@ -66,6 +67,7 @@ public class EpicServlet extends HttpServlet {
 	    	            +request.getParameter(""+p)+"</p>");
 
 	    	      }
+	    	      out.println("</div>");
 	}
 
 	/**
