@@ -67,4 +67,28 @@ public class Epic {
 		actions.add(ishtar.introduce(gilgamesh));
 	}
 
+	public static  List<Act>  getActions(String parameter) {
+		
+		if(parameter==null) return getActions();
+		
+		int n = 3;
+		try{
+			n=Integer.parseInt(parameter);
+		} catch(Exception e){
+			
+		}
+		
+		List<Act> actions = new ArrayList<Act>();
+		int i=0;
+		for(Act a:getActions()){
+			if(i>=n) break;
+				actions.add(a);
+				i++;
+		}
+		
+		return actions;
+	}
+
+	
+
 }
