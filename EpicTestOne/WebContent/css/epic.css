@@ -1,19 +1,38 @@
 @CHARSET "ISO-8859-1";
 
+h1{
+	margin: 20px 0 10px 10px;
+	font-family: Arial;
+	color: #61380B;
+	font-size: 32px;
+}
+
+div.left{
+	float:left;
+}
+div.image{
+	margin: 10px 0 0 10px;
+	float:left;
+}
+.image img{
+	width:240px;
+	height: 560px;
+}
 div.tech{
-	border:3px solid black;
+	border:3px solid #848484;
 	margin: 10px 0 0 10px;
 	padding: 10px 0 0 10px;
 	font-family: 'Courier New';
 	width: 800px;
-	background-color: #C1C1C1;
+	color: #848484;
+	background-color: #FAFAFA;
 }
 div.text{
 	border:3px solid #61380B;
 	margin: 10px 0 0 10px;
 	padding: 10px 0 0 10px;
 	font-family: 'Times New Roman';
-	font-size:16px;
+	font-size:18px;
 	color: #61380B;
 	width: 800px;
 	background-color: #F5ECCE;

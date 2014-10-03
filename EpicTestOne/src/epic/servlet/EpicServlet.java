@@ -41,12 +41,15 @@ public class EpicServlet extends HttpServlet {
 	      PrintWriter out = response.getWriter();
 	      out.println("<html>");
 	      out.println("<head>");
-	      out.println("<LINK rel=stylesheet type=\"text/css\" href=\"epic.css\">");
+	      out.println("<LINK rel=stylesheet type=\"text/css\" href=\"css/epic.css\">");
 	      out.println("</head>");
 	      out.println("<body>");
 	     
-	      out.println("<h1>Epic Servlet of Gilgamesh (GET)</h1>");
-	
+	      
+	      out.println("<h1>Epic Servlet of Gilgamesh</h1>");
+	      
+	      out.println("<div>");
+	      out.println("<div class=\"left\">");
 	      out.println("<div class=\"text\">");
 	      for(Act a:Epic.getActions(request.getParameter("ver"))){
 	    	  out.println("<p>"+a.write()+"</p>");
@@ -54,8 +57,6 @@ public class EpicServlet extends HttpServlet {
 	      out.println("</div>");
 	      
 	      out.println("<div class=\"tech\">");
-	      out.println("<p>MIME type of the request :"
-	    	        +request.getContentType()+"</p>");
 	    	      out.println("<p>Request protocol :"
 	    	        +request.getProtocol()+"</p>");
 	    	      out.println("<p>IP adress client :"
@@ -77,7 +78,11 @@ public class EpicServlet extends HttpServlet {
 
 	    	      }
 	    	      out.println("</div>");
-	    	   
+	    	      out.println("</div>");
+	    	      out.println("<div class=\"image\">");
+	    	      out.println("<img src=\"img/gilgamesh.jpg\">");
+	    	      out.println("</div>");
+	    	      out.println("</div>");
 	    	      out.println("</body>");
 	    	      out.println("</html>");
 	}
