@@ -10,9 +10,9 @@ import java.sql.Statement;
 
 
 public class MySQLAccess {
-	private static String url = "jdbc:mysql://localhost/uruk?user=nabu&password=tyumen2014";
-	private static String login="gilgamesh";
-	private static String pw=".enk1du.";
+	private static String url = "jdbc:mysql://localhost/uruk";//?user=nabu&password=tyumen2014
+	private static String login="nabu";
+	private static String pw="tyumen2014";
   private static Connection con = null;
   private static Statement stmt = null;
   private static PreparedStatement ptmt = null;
@@ -23,7 +23,7 @@ public class MySQLAccess {
 	      // this will load the MySQL driver, each DB has its own driver
 	      Class.forName("com.mysql.jdbc.Driver");
 	      // setup the connection with the DB.
-	      con = DriverManager.getConnection(url);
+	      con = DriverManager.getConnection(url,login,pw);
 
 	      return con;
 	      
@@ -37,8 +37,6 @@ public class MySQLAccess {
 	  getConnection();
 	   // preparedStatements can use variables and are more efficient
       ptmt = con.prepareStatement("insert into uruk.god(name,title) values (?, ?)");
-      // "myuser, webpage, datum, summary, COMMENTS from FEEDBACK.COMMENTS");
-      // parameters start with 1
       ptmt.setString(1, "Enlil");
       ptmt.setString(2, "Lord of the Storm");
       ptmt.executeUpdate();
