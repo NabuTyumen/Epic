@@ -1,15 +1,42 @@
 package epic.characters;
 
+import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONAware;
+import org.json.simple.JSONObject;
+
 import epic.actions.Speak;
 
 
-public abstract class Person {
+public class Person implements JSONAware{
+	private int id;
+	private String name;
+	private String title;
+	private ArrayList<Person> parents;
+	private boolean mortal;
+	private char sex;
 	
-	String name;
-	Person[] parents;
-	public boolean mortal;
-	public char sex;
-	
+public Person(int id,String name, String title, boolean mortal, char sex, Person[] parents){
+		
+		setName(name);
+		setTitle(title);
+		setMortal(mortal);
+		setSex(sex);
+		setParents(parents);
+		
+	}
+
+	public Person(int id,String name, String title, String mortal, String sex, Person[] parents) {
+		
+		setName(name);
+		setTitle(title);
+		setMortal("T".equals(mortal)?true:false);
+		setSex("M".equals(sex)?'M':'F');
+		setParents(parents);
+		
+}
+
 	/**
 	 * Method creating a Speak 
 	 * introducing a character
@@ -39,18 +66,21 @@ public abstract class Person {
 		if(c==null) return "";
 		
 		StringBuilder text = new StringBuilder("");
-		Person[] p = c.getParents();
-		if(p[0] != null) {
+		ArrayList<Person> p = c.getParents();
+		if(p.get(0) != null) {
 			text.append(c.mortal?", mortal ":", immortal ");
 			text.append(c.sex=='M'?"son of ":"daughter of ");
-			text.append(p[0].name);
-			text.append(getFiliation(p[0]));
+			text.append(p.get(0).name);
+			text.append(getFiliation(p.get(0)));
 		}
-		if(p[1] != null) {
-			text.append(" and ");
-			text.append(p[1].name);
-			text.append(getFiliation(p[1]));
+		for(int i=1;i<p.size();i++){
+			if(p.get(i) != null) {
+				text.append(" and ");
+				text.append(p.get(i).name);
+				text.append(getFiliation(p.get(i)));
+			}
 		}
+		
 		return text.toString();
 	}
 
@@ -61,22 +91,75 @@ public abstract class Person {
 		return name;
 	}
 	
+	public	String setName(String n) {
+		return this.name=n;
+	}
 	
 	/**
 	 * @return
 	 */
-	public Person[] getParents() {
+	public ArrayList<Person> getParents() {
 		if(parents == null){
-			Person[] parents = {null,null};
-			setParents(parents);
+			parents = new ArrayList<Person>();
 		}
 			
 		return parents;
 	}
-	public void setParents(Person[] p) {
-		parents = p;
+	public void setParents(Person[] ps) {
+		parents =  new ArrayList<Person>();
+		for(Person p:ps){
+			parents.add(p);
+		}
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String t) {
+		this.title = t;
 	}
 	
+	public boolean getMortal() {
+		return mortal;
+	}
 
+	public void setMortal(boolean m) {
+		this.mortal = m;
+	}
+	public char getSex() {
+		return sex;
+	}
+
+	public void setSex(char s) {
+		this.sex = s;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getMortalStr() {
+		return getMortal()?"T":"F";
+	}
+	public String getSexStr() {
+		return getSex()=='M'?"M":"F";
+	}
+
+	@Override
+	public String toJSONString() {
+		JSONObject json = new JSONObject() ;
+		json.put("id", getId());
+		json.put("title", getTitle());
+		json.put("mortal", getMortal());
+		json.put("sex", getSex());
+		JSONArray ps = new JSONArray();
+		ps.addAll(getParents());
+		return json.toJSONString();
+	}
 
 }

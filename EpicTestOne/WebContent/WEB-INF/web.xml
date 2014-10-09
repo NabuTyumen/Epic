@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-	version="2.4">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+  <servlet>
+    <servlet-name>EpicServlet</servlet-name>
+    <servlet-class>epic.servlet.EpicServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UrukServlet</servlet-name>
+    <servlet-class>epic.servlet.UrukServlet</servlet-class>
+  </servlet>
    <servlet>
-        <servlet-name>EpicServlet</servlet-name>
-        <servlet-class>epic.servlet.EpicServlet</servlet-class>
-    </servlet>
-
+    <servlet-name>LoadServlet</servlet-name>
+    <servlet-class>epic.servlet.LoadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EpicServlet</servlet-name>
+    <url-pattern>epic.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UrukServlet</servlet-name>
+    <url-pattern>/uruk</url-pattern>
+  </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EpicServlet</servlet-name>
-        <url-pattern>*.html</url-pattern>
-    </servlet-mapping>
-    </web-app>  
+    <servlet-name>LoadServlet</servlet-name>
+    <url-pattern>/load</url-pattern>
+  </servlet-mapping>
+</web-app>

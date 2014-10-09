@@ -37,3 +37,13 @@ div.text{
 	width: 800px;
 	background-color: #F5ECCE;
 }
+table.uruk th{
+	height:12px;
+	text-align:left;
+	font-size:11px;
+    background-color:#F5ECCE; 
+    color:#61380B;
+	font-weight:normal;
+    vertical-align: middle;
+    border:1px solid #61380B;
+}
