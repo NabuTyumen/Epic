@@ -8,7 +8,7 @@ package epic;
  *to write our Epic
  *
  */
-public class epic {
+public class A_Epic {
 
 	public static String writer(int i){
 		switch(i){
