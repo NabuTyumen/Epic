@@ -13,7 +13,7 @@ public class Epic {
 
 	public static List<Person> getPersons() {
 		if(persons == null){
-			DBAccess.getPersons();
+			persons=DBAccess.getPersons();
 		}
 		return persons;
 	}

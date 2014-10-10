@@ -112,9 +112,9 @@ getConnection();
 		ptmt = con.prepareStatement("SELECT id,name,title,mortal,sex FROM uruk.person");
 		rs=ptmt.executeQuery();
 		while(rs.next()){
-			ps.add( new Person(rs.getInt("id"),rs.getString("name"), rs.getString("title"), rs.getString("mortal"), rs.getString("sex"), null));
+			ps.add( new Person(rs.getInt("id"),rs.getString("name"), rs.getString("title"), rs.getString("mortal"), rs.getString("sex")));
 		}
-		addParent(ps);
+		//addParent(ps);
 	
 	} catch (SQLException e) {
 		e.printStackTrace();
@@ -151,5 +151,49 @@ private static void addParent(ArrayList<Person> ps) {
 		close();
 	}
 	
+}
+
+
+public static boolean delPerson(int id) {
+	getConnection();
+		try {
+			ptmt = con.prepareStatement("DELETE FROM uruk.person WHERE id=?");
+			ptmt.setInt(1, id);
+			ptmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+	return false;
+}
+
+
+public static int updatePerson(int id, String field, String value) {
+	getConnection();
+	try{
+	if(id==0){
+		ptmt = con.prepareStatement("INSERT INTO uruk.person("+field+") VALUES (?)",Statement.RETURN_GENERATED_KEYS);
+		ptmt.setString(1, value);
+		ptmt.executeUpdate();
+		rs = ptmt.getGeneratedKeys();
+		if(rs.next()){
+			return rs.getInt(1);
+		} 
+	} else{
+		ptmt = con.prepareStatement("UPDATE uruk.person SET "+field+"=? WHERE id=?");
+		ptmt.setString(1, value);
+		ptmt.setInt(2, id);
+		ptmt.executeUpdate();
+		return id;
+	}
+	
+} catch (SQLException e) {
+	e.printStackTrace();
+} finally{
+	close();
+}
+	return 0;
 }
 } 

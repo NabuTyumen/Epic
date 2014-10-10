@@ -22,23 +22,23 @@ public class Person implements JSONAware {
 	private boolean mortal;
 	private char sex;
 	
-public Person(int id,String name, String title, boolean mortal, char sex, Person[] parents){
-		
+public Person(int id,String name, String title, boolean mortal, char sex){
+		setId(id);
 		setName(name);
 		setTitle(title);
 		setMortal(mortal);
 		setSex(sex);
-		setParents(parents);
+		//setParents(parents);
 		
 	}
 
-	public Person(int id,String name, String title, String mortal, String sex, Person[] parents) {
-		
+	public Person(int id,String name, String title, String mortal, String sex) {
+		setId(id);
 		setName(name);
 		setTitle(title);
 		setMortal("T".equals(mortal)?true:false);
 		setSex("M".equals(sex)?'M':'F');
-		setParents(parents);
+		//setParents(parents);
 		
 }
 
@@ -69,9 +69,10 @@ public Person(int id,String name, String title, boolean mortal, char sex, Person
 	 */
 	private String  getFiliation(Person c ) {
 		if(c==null) return "";
+		ArrayList<Person> p = c.getParents();
+		if(p.isEmpty()) return "";
 		
 		StringBuilder text = new StringBuilder("");
-		ArrayList<Person> p = c.getParents();
 		if(p.get(0) != null) {
 			text.append(c.mortal?", mortal ":", immortal ");
 			text.append(c.sex=='M'?"son of ":"daughter of ");
@@ -111,10 +112,14 @@ public Person(int id,String name, String title, boolean mortal, char sex, Person
 		return parents;
 	}
 	public void setParents(Person[] ps) {
+		
 		parents =  new ArrayList<Person>();
-		for(Person p:ps){
-			parents.add(p);
+		if(ps!=null){
+			for(Person p:ps){
+				parents.add(p);
+			}
 		}
+		
 	}
 
 	public String getTitle() {
@@ -159,12 +164,13 @@ public Person(int id,String name, String title, boolean mortal, char sex, Person
 	public String toJSONString() {
 		JSONObject json = new JSONObject() ;
 		json.put("id", getId());
+		json.put("name", getName());
 		json.put("title", getTitle());
 		json.put("mortal", getMortal());
-		json.put("sex", getSex());
-		JSONArray ps = new JSONArray();
+		json.put("sex", getSexStr());
+		/*JSONArray ps = new JSONArray();
 		ps.addAll(getParents());
-		json.put("parents", ps);
+		json.put("parents", ps);*/
 		return json.toJSONString();
 	}
 
