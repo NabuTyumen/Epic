@@ -2,6 +2,11 @@ package epic.characters;
 
 import java.util.ArrayList;
 
+
+
+
+
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONAware;
 import org.json.simple.JSONObject;
@@ -9,7 +14,7 @@ import org.json.simple.JSONObject;
 import epic.actions.Speak;
 
 
-public class Person implements JSONAware{
+public class Person implements JSONAware {
 	private int id;
 	private String name;
 	private String title;
@@ -159,6 +164,7 @@ public Person(int id,String name, String title, boolean mortal, char sex, Person
 		json.put("sex", getSex());
 		JSONArray ps = new JSONArray();
 		ps.addAll(getParents());
+		json.put("parents", ps);
 		return json.toJSONString();
 	}
 

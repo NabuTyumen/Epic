@@ -2,16 +2,12 @@ package epic.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import epic.characters.Person;
 import epic.db.DBAccess;
@@ -35,22 +31,7 @@ public class LoadServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		JSONObject json = new JSONObject() ;
-		JSONArray persons = new JSONArray(); 
-		persons.addAll(DBAccess.getPersons());			 
-		json.put("persons", persons);   
 		
-		 response.setContentType("application/json");
-			response.setHeader("Cache-Control", "no-cache");
-			PrintWriter out;
-			try {
-				
-				out = response.getWriter();
-				out.print(json);
-				out.flush();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 
 	}
 
@@ -58,7 +39,54 @@ public class LoadServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String action = getString(request.getParameter("action"));
+		
+		
+		if("load".equals(action)){
+			/*JSONObject json = new JSONObject() ;
+			JSONArray persons = new JSONArray(); 
+			persons.addAll(DBAccess.getPersons());			 
+			json.put("persons", persons);   */
+			
+			 response.setContentType("application/json");
+				response.setHeader("Cache-Control", "no-cache");
+				PrintWriter out;
+				try {
+					
+					out = response.getWriter();
+					//out.print(json);
+					out.flush();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		} else if("upd".equals(action)){
+			int id = getInteger(request.getParameter("id"));
+			String name = getString(request.getParameter("name"));
+			String title = getString(request.getParameter("title"));
+			boolean mortal = getBoolean(request.getParameter("mortal"));
+			char sex = getString(request.getParameter("sex")).charAt(0);
+			
+			Person p = new Person(id,name,title,mortal,sex,null);
+			
+			DBAccess.updatePerson(p);
+		}
+		
+		
 	}
+	private boolean getBoolean(String parameter) {
+		if(parameter==null) return false;
+		return "T".equals(parameter)?true:false;
+	}
+
+	private int getInteger(String parameter) {
+		if(parameter==null) return 0;
+		return Integer.parseInt(parameter);
+	}
+
+	private String getString(String parameter) {
+		if(parameter==null) return "";
+		return parameter;
+	}
+
 
 }

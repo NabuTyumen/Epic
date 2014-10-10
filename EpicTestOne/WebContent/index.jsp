@@ -13,43 +13,61 @@
 <script>
 
 $(function(){
+	var btn=$("input[type=submit], a, button" ).button().click(load);
+	var add=$('<img>').prop({src:'img/add.png'}).click(add);
+	$("#uruk").append(btn);
+	$("#uruk").append(add);
 	
-	 
-	  
-	var btn=$( "input[type=submit], a, button" )
-    .button()
-    .click(function( event ) {
-    	
-    	$.ajax({
-			type: "GET",
-		    url: 'load',
-		    data: { action: "load"},
-		    dataType: 'json',
-		    success: function(data) {
-				$("#uruk").empty();
-				var table=$('<table>').addClass('uruk');
-				$("#uruk").append(table);
-				var tr; var td;
-				$.each(data.persons,function(i,p){
-					tr=$('<tr>');
-					tr.append($('<td>').text(p.id));
-					tr.append($('<td>').append($('<input>').val(p.name)));
-					tr.append($('<td>').append($('<input>').val(p.title)));
-					tr.append($('<td>').append($('<img>').prop({src:'img/delete.png'}).click(del)));
-					table.append(tr);
-					
-				});
-				        		      
-		    }
-		});
-    });
+});
 	
-	 $("#uruk").append(btn);
-	  
-	});
+function load(){
+	    	$.ajax({
+				type: 'POST',
+			    url: 'load',
+			    data: { action: 'load'},
+			    dataType: 'json',
+			    success: function(data) {
+					$("#uruk").empty();
+					var table=$('<table>').prop({id:'taburuk'}).addClass('uruk');
+					$("#uruk").append(table);
+					var tr; var td;
+					$.each(data.persons,function(i,p){
+						tr=$('<tr>');
+						tr.append($('<td>').text(p.id));
+						tr.append($('<td>').append($('<input>').prop({id:'name_'+i}).val(p.name)));
+						tr.append($('<td>').append($('<input>').prop({id:"_"+i,idp:p.id}).val(p.title)));
+						tr.append($('<td>').append($('<img>').prop({src:'img/delete.png'}).click(del)));
+						table.append(tr);
+					});		      
+			    }
+			});
+	}
 	
 	function del(){
-		
+		$.ajax({
+			type: 'POST',
+		    url: 'load',
+		    data: { action: 'del',id:this.idp},
+		    dataType: 'json',
+		    success: function(data) {
+				load;				        		      
+		    }
+		});
+	}
+	
+	function add(){
+		}
+	
+	function upd(){
+		$.ajax({
+			type: 'POST',
+		    url: 'load',
+		    data: { action: 'upd'},
+		    dataType: 'json',
+		    success: function(data) {
+				load;				        		      
+		    }
+		});
 	}
 </script>
 
@@ -58,6 +76,6 @@ $(function(){
 <div id="uruk">
 <input type="submit" value="Edit characters">
 </div>
-<div id="epic"><jsp:include page="epic.html"></jsp:include></div>
+<div id="epic"></div>
 </body>
 </html>
