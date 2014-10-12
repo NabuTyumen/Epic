@@ -12,7 +12,7 @@ import java.util.Random;
  *to write our Epic
  *
  */
-public class A_Epic {
+public class B_Epic {
 	
 	public static String writer(int i){
 		switch(i){
