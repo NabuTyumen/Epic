@@ -3,7 +3,7 @@ package epic;
 import java.util.ArrayList;
 import java.util.List;
 
-import epic.actions.Act;
+import epic.actions.Speak;
 import epic.characters.Person;
 public class Epic {
 	
@@ -17,16 +17,16 @@ public class Epic {
 	static final int ENLIL=8;
 	static final int NINLIL=9;
 
-	private static List<Act> actions;
+	private static List<Speak> actions;
 
 
-	public static List<Act> getActions() {
+	public static List<Speak> getActions() {
 		return actions;
 	}
 
 	
-	public static void tellMe(List<Act> actions) {
-		for(Act a:actions){
+	public static void tellMe(List<Speak> actions) {
+		for(Speak a:actions){
 			a.write();
 		}
 	}
@@ -75,7 +75,7 @@ public class Epic {
 		/** Creation of the actions    **
 		/********************************/
 		
-		actions = new ArrayList<Act>();
+		actions = new ArrayList<Speak>();
 		actions.add(gilgamesh.introduce(null));
 		actions.add(enkidu.introduce(gilgamesh));
 		actions.add(ishtar.introduce(gilgamesh));

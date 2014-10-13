@@ -1,25 +1,17 @@
 package epic.actions;
 
+import java.text.DecimalFormat;
+
 import epic.characters.Person;
 
 
-/**
- * @author Bruno
- * 
- * Inherit from Act 
- * the two properties:
- * Character who 
- * DecimalFormat df
- * 
- * Implement write()
- * by writing on the console
- * */
  
-public class Speak extends Act{
-	
+public class Speak {
+	Person who;
 	Person to;
 	String text;
 	
+	protected final DecimalFormat df = new DecimalFormat("00");
 	
 	/**
 	 * Constructor of a speak:
@@ -34,19 +26,16 @@ public class Speak extends Act{
 		this.text=text;
 	}
 		
-	/* (non-Javadoc)
-	 * @see epic.actions.Act#write()
-	 */
 	public void write(){
 		System.out.println();
 		System.out.print(" ver. ");
-		System.out.print(super.df.format(++Counter.counter));
+		System.out.print(df.format(++Counter.counter));
 		System.out.print(" - ");
-		System.out.print(this.who.getName());
+		System.out.print(who.getName());
 		System.out.print(" says");
 		if(to!=null){
 			System.out.print(" to ");
-			System.out.print(this.to.getName());
+			System.out.print(to.getName());
 		}
 		System.out.print(": \"");
 		System.out.print(text);
