@@ -1,12 +1,13 @@
 package epic.characters;
 
 import epic.actions.Speak;
-import epic.characters.Speaker;
 
 
 
 
-public abstract class Person implements Speaker, Scion{
+
+public class Person {
+	
 	
 
 	
@@ -16,7 +17,16 @@ public abstract class Person implements Speaker, Scion{
 	public boolean mortal;
 	public char gender;
 	
-	@Override
+	public Person(int id,String name, boolean mortal, char gender, Person[] parents){
+		this.id=id;
+		this.name=name;
+		this.gender=gender;
+		this.mortal=mortal;
+		this.parents=parents;
+		this.mortal=true;
+	}
+	
+
 	/**
 	 * Implementation of the
 	 * interface Speaker
@@ -38,6 +48,31 @@ public abstract class Person implements Speaker, Scion{
 		return intro;
 	}
 	
+	/**
+	 * This method appends in a recursive way 
+	 * the parentage of each parent of a Character
+	 * @param c
+	 * @return
+	 */
+	public String  getFiliation(Person c ) {
+		if(c==null) return "";
+		
+		StringBuilder text = new StringBuilder("");
+		Person[] p = c.getParents();
+		if(p[0] != null) {
+			text.append(", ");
+			text.append(mortal?"mortal":"immortal");
+			text.append(c.gender=='M'?" son of ":" daughter of ");
+			text.append(p[0].name);
+			text.append(getFiliation(p[0]));
+		}
+		if(p[1] != null) {
+			text.append(" and ");
+			text.append(p[1].name);
+			text.append(getFiliation(p[1]));
+		}
+		return text.toString();
+	}
 	
 
 	/**

@@ -5,8 +5,6 @@ import java.util.List;
 
 import epic.actions.Act;
 import epic.characters.Person;
-import epic.characters.God;
-import epic.characters.Human;
 public class Epic {
 	
 	static final int GILGAMESH=1;
@@ -41,36 +39,36 @@ public class Epic {
 		/********************************/
 		
 		//ANU God of Heaven
-		God anu = new God(ANU,"Anu",'M',null);
+		Person anu = new Person(ANU,"Anu",false,'M',null);
 
 		//ISHTAR Goddess of Love
 		Person[] pIshtar = {anu,null};
-		God ishtar = new God(ISHTAR, "Ishtar",'F',pIshtar);
+		Person ishtar = new Person(ISHTAR, "Ishtar",false,'F',pIshtar);
 		
 		//Enlil Lord of the Storm
-		God enlil = new God(ENLIL, "Enlil",'M',null);
+		Person enlil = new Person(ENLIL, "Enlil",false,'M',null);
 		
 		//NINLIL Wife of Enlil
-		God ninlil = new God(NINLIL,"Ninlil",'F',null);
+		Person ninlil = new Person(NINLIL,"Ninlil",false,'F',null);
 		
 		//NINURTA God of War
 		Person[] pNinurta = {enlil,ninlil};
-		God ninurta = new God(NINURTA,"Ninurta",'F',pNinurta);
+		Person ninurta = new Person(NINURTA,"Ninurta",false,'F',pNinurta);
 		
 		//NINSUN, the Lady Wild Cow
 		Person[] pNinsun = {anu,null};
-		God ninsun = new God(NINSUN,"Ninsun",'F',pNinsun);
+		Person ninsun = new Person(NINSUN,"Ninsun",false,'F',pNinsun);
 		
 		//LULGALBANDA Third King of Uruk
-		Human lugal = new Human(LUGAL,"Lugalbanda",'M',null);
+		Person lugal = new Person(LUGAL,"Lugalbanda",true,'M',null);
 		
 		//GILGAMESH Fifth King of Uruk
 		Person[] pGilgamesh = {lugal,ninsun};
-		Human gilgamesh = new Human(GILGAMESH,"Gilgamesh",'M',pGilgamesh);
+		Person gilgamesh = new Person(GILGAMESH,"Gilgamesh",true,'M',pGilgamesh);
 		
 		//ENKIDU Friend of Gilgamesh
 		Person[] pEnkidu = {ninurta,null};
-		Human enkidu = new Human(ENKIDU,"Enkidu",'M',pEnkidu);
+		Person enkidu = new Person(ENKIDU,"Enkidu",true,'M',pEnkidu);
 		
 
 		/********************************
@@ -81,8 +79,6 @@ public class Epic {
 		actions.add(gilgamesh.introduce(null));
 		actions.add(enkidu.introduce(gilgamesh));
 		actions.add(ishtar.introduce(gilgamesh));
-		actions.add(gilgamesh.pray(ninsun));
-		actions.add(enkidu.pray(enlil));
 		
 		/********************************
 		/** Now, tell the story        **
