@@ -22,9 +22,9 @@ public class Speak extends Act{
 	
 	
 	/**
-	 * Constructor of a speak:
+	 * Constructor of Speak:
 	 * 'who' say to 'to' a 'text'
-	 * @param who
+	 * @param who (inherited from the abstract class Act)
 	 * @param to
 	 * @param text
 	 */

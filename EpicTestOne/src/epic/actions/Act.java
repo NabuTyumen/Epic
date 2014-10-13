@@ -7,6 +7,7 @@ import epic.characters.Person;
 public abstract class Act {
 	
 	public Person who;
+	
 	protected final DecimalFormat df = new DecimalFormat("00");
 	
 	public abstract void write();
