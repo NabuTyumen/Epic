@@ -18,18 +18,6 @@ public class Epic {
 	static final int NINLIL=9;
 
 	private static List<Speak> actions;
-
-
-	public static List<Speak> getActions() {
-		return actions;
-	}
-
-	
-	public static void tellMe(List<Speak> actions) {
-		for(Speak a:actions){
-			a.write();
-		}
-	}
 	
 
 	public static void main(String[] args) {
@@ -84,7 +72,9 @@ public class Epic {
 		/** Now, tell the story        **
 		/********************************/
 		
-		tellMe(actions);
+		for(Speak a:actions){
+			a.write();
+		}
 
 
 	}

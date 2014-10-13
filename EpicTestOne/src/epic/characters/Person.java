@@ -100,46 +100,4 @@ public class Person {
 
 
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		return result;
-	}
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Person other = (Person) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
-
-
-
-	public String getParentalTitle() {
-		switch(gender){
-		case 'M': return "father";
-		case 'F': return "mother";
-		}
-		return "";
-	}
-	
-	public String getChildTitle() {
-		switch(gender){
-		case 'M': return "son";
-		case 'F': return "daughter";
-		}
-		return "";
-	}
-
 }
