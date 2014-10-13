@@ -10,5 +10,6 @@ public abstract class Act {
 	protected final DecimalFormat df = new DecimalFormat("00");
 	
 	public abstract void write();
+	
 
 }

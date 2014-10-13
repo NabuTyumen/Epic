@@ -1,16 +1,25 @@
 package epic.characters;
 
 import epic.actions.Speak;
+import epic.characters.Speaker;
 
 
-public abstract class Person {
+
+
+public abstract class Person implements Speaker, Scion{
 	
+
+	
+	int id;
 	String name;
 	Person[] parents;
 	public boolean mortal;
-	public char sex;
+	public char gender;
 	
+	@Override
 	/**
+	 * Implementation of the
+	 * interface Speaker
 	 * Method creating a Speak 
 	 * introducing a character
 	 * @param to
@@ -29,30 +38,7 @@ public abstract class Person {
 		return intro;
 	}
 	
-	/**
-	 * This method appends in a recursive way 
-	 * the parentage of each parent of a Character
-	 * @param c
-	 * @return
-	 */
-	private String  getFiliation(Person c ) {
-		if(c==null) return "";
-		
-		StringBuilder text = new StringBuilder("");
-		Person[] p = c.getParents();
-		if(p[0] != null) {
-			text.append(c.mortal?", mortal ":", immortal ");
-			text.append(c.sex=='M'?"son of ":"daughter of ");
-			text.append(p[0].name);
-			text.append(getFiliation(p[0]));
-		}
-		if(p[1] != null) {
-			text.append(" and ");
-			text.append(p[1].name);
-			text.append(getFiliation(p[1]));
-		}
-		return text.toString();
-	}
+	
 
 	/**
 	 * @return
@@ -76,7 +62,49 @@ public abstract class Person {
 	public void setParents(Person[] p) {
 		parents = p;
 	}
-	
 
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+
+
+	public String getParentalTitle() {
+		switch(gender){
+		case 'M': return "father";
+		case 'F': return "mother";
+		}
+		return "";
+	}
+	
+	public String getChildTitle() {
+		switch(gender){
+		case 'M': return "son";
+		case 'F': return "daughter";
+		}
+		return "";
+	}
 
 }
