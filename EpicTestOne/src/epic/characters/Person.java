@@ -3,6 +3,22 @@ package epic.characters;
 import epic.actions.Speak;
 import epic.characters.Speaker;
 
+/**
+ * @author Bruno
+ * 
+	 * Compared to the branch "object_simple"
+	 * this is a ABSTRACT class.
+	 * To implement a person, we need to implement 
+	 * one of the inherited classes :
+	 * Human or God
+	 * 
+	 * Note that there is no more property "mortal" because by definition 
+	 * - all humans ARE mortal, 
+	 * - all gods ARE immortal 
+	 * (that is lighten the constructor of the inherited class 
+	 * but instead a new method getMortal which return a String
+ */
+
 public abstract class Person implements Speaker, Scion{
 	
 	protected int id;
@@ -10,10 +26,24 @@ public abstract class Person implements Speaker, Scion{
 	protected Person[] parents;
 	protected char gender;
 	
+	/**
+	 * ABSTRACT method : must be implemented 
+	 * by the inherited classes
+	 * to give :
+	 * for a Human -> "mortal"
+	 * for a God -> "immortal"
+	 * @return
+	 */
+	public abstract String getMortal();
+	
 	@Override
 	/**
 	 * Implementation of the interface Speaker
 	 * Method creating a Speak introducing a character
+	 * 
+	 * God and Human both introduce themselves 
+	 * in a same way so the method could be inherited by the both classes
+	 * 
 	 * @param to
 	 * @return
 	 */
@@ -38,14 +68,29 @@ public abstract class Person implements Speaker, Scion{
 	
 
 	/**
+	 * Constructing a Speak, or a Pray
+	 * we need to access to the name 
+	 * of the person.
+	 * Here is the getter of this property
+	 * 
 	 * @return
 	 */
 	public	String getName() {
 		return name;
 	}
 	
-	
 	/**
+	 * The property "parents" has only a  
+	 * internal access, so basically 
+	 * we would needn't a getter for it
+	 * 
+	 * But this property could be NULL
+	 * that will cause a NullPointerException 
+	 * if we want iterate on it
+	 * so the getter will test the null value 
+	 * and fix it by setting a empty Collection
+	 * 
+	 * 
 	 * @return
 	 */
 	public Person[] getParents() {
@@ -56,6 +101,7 @@ public abstract class Person implements Speaker, Scion{
 			
 		return parents;
 	}
+
 	
 	/**
 	 * @param p
@@ -121,7 +167,7 @@ public abstract class Person implements Speaker, Scion{
 		return "";
 	}
 	
-	public abstract String getMortal();
+
 	
 	/**
 	 * This method appends in a recursive way 
@@ -152,6 +198,7 @@ public abstract class Person implements Speaker, Scion{
 	}
 
 
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -162,6 +209,16 @@ public abstract class Person implements Speaker, Scion{
 
 
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 * 
+	 * To test the identity of a Person
+	 * nothing like a id !
+	 * 
+	 * Instead of test it with the name
+	 * (risk of homonymie of the character)
+	 * we test the identity which a unique id
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

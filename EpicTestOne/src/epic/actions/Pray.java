@@ -2,10 +2,15 @@ package epic.actions;
 
 import epic.characters.Person;
 
-public class Pray extends Speak {
+public class Pray extends Act {
+	
+	Person to;
+	String text;
 
 	public Pray(Person who, Person to, String text) {
-		super(who, to, text);
+		this.who=who;
+		this.to=to;
+		this.text=text;
 	}
 	
 	public void write(){

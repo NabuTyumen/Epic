@@ -1,22 +1,31 @@
 package epic.characters;
 
 import epic.actions.Pray;
-import epic.actions.Speak;
 
+
+/**
+ * @author Bruno
+ * 
+ * As God, humans are persons = extends the same abstract class Person
+ * Only humans pray = only class Human implements interface Worshiper
+ *
+ */
 public class Human extends Person implements Worshiper{
 
 	
 	/**
 	 * Constructor of a Human
+	 * 
+	 * 
 	 * @param id
 	 * @param name
-	 * @param sex
+	 * @param gender
 	 * @param parents
 	 */
-	public Human(int id,String name, char sex, Person[] parents){
+	public Human(int id,String name, char gender, Person[] parents){
 		this.id=id;
 		this.name=name;
-		this.gender=sex;
+		this.gender=gender;
 		this.parents=parents;
 	}
 
@@ -24,7 +33,7 @@ public class Human extends Person implements Worshiper{
 	 * @see epic.characters.Worshiper#pray(epic.characters.God)
 	 */
 	@Override
-	public Speak pray(God to) {
+	public  Pray pray(God to) {
 		//invoque his god
 		StringBuilder text = new StringBuilder("O ");
 		

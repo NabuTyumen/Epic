@@ -8,7 +8,7 @@ import epic.characters.Person;
  * 
  * Inherit from Act 
  * the two properties:
- * Character who 
+ * Person who 
  * DecimalFormat df
  * 
  * Implement write()
@@ -18,7 +18,7 @@ import epic.characters.Person;
 public class Speak extends Act{
 	
 	Person to;
-	String text;
+	String speech;
 	
 	
 	/**
@@ -26,12 +26,12 @@ public class Speak extends Act{
 	 * 'who' say to 'to' a 'text'
 	 * @param who (inherited from the abstract class Act)
 	 * @param to
-	 * @param text
+	 * @param speech
 	 */
-	public Speak(Person who, Person to, String text){
+	public Speak(Person who, Person to, String speech){
 		this.who=who;
 		this.to=to;
-		this.text=text;
+		this.speech=speech;
 	}
 		
 	/* (non-Javadoc)
@@ -49,7 +49,7 @@ public class Speak extends Act{
 			System.out.print(this.to.getName());
 		}
 		System.out.print(": \"");
-		System.out.print(text);
+		System.out.print(speech);
 		System.out.print("\".");
 	}
 

@@ -20,18 +20,6 @@ public class Epic {
 	static final int NINLIL=9;
 
 	private static List<Act> actions;
-
-
-	public static List<Act> getActions() {
-		return actions;
-	}
-
-	
-	public static void tellMe(List<Act> actions) {
-		for(Act a:actions){
-			a.write();
-		}
-	}
 	
 
 	public static void main(String[] args) {
@@ -85,10 +73,12 @@ public class Epic {
 		actions.add(enkidu.pray(enlil));
 		
 		/********************************
-		/** Now, tell the story        **
+		/** Now, tell us the story        **
 		/********************************/
 		
-		tellMe(actions);
+		for(Act a:actions){
+			a.write();
+		}
 
 
 	}
