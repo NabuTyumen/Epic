@@ -42,7 +42,7 @@ public class Persons {
 		return mortals;
 	}
 
-	 static HashMap<Integer, Character> getSexs() {
+	 static HashMap<Integer, Character> getGenders() {
 		HashMap<Integer, Character> sexs = new HashMap<Integer, Character>();
 		sexs.put(GILGAMESH, 'M');
 		sexs.put(ENKIDU, 'M');

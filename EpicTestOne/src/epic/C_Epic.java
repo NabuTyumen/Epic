@@ -7,7 +7,7 @@ public class C_Epic {
 
 	private static final HashMap<Integer, String> names = Persons.getNames();
 	private static final HashMap<Integer, Integer[]> parents = Persons.getParents();
-	private static final HashMap<Integer, Character> sexs =Persons.getSexs();
+	private static final HashMap<Integer, Character> genders =Persons.getGenders();
 	private static final HashMap<Integer, Boolean> mortals = Persons.getMortals();
 
 	private static String getLine(int line){
@@ -42,7 +42,7 @@ public class C_Epic {
 		Integer[] p = parents.get(c);
 		if(p[0] != 0) {
 			text.append(mortals.get(c)?", mortal ":", immortal ");
-			text.append(sexs.get(c)=='M'?"son of ":"daughter of ");
+			text.append(genders.get(c)=='M'?"son of ":"daughter of ");
 			text.append(names.get(p[0]));
 			text.append(getFiliation(p[0]));
 		}
