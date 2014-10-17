@@ -1,4 +1,4 @@
-
+package epic;
 public class Person {
 	String name;
 	char gender;
@@ -17,14 +17,14 @@ public class Person {
 		mortal = Data.getMortals().get(key);	
 	}
 
-	private String introFactory(){
+	private String introFactory(Person to){
 		StringBuilder sb = new StringBuilder();
 		sb.append(name);
 		sb.append(" says");
-		/*if(to!=0){
+		if(to!=null){
 			sb.append(" to ");
-			sb.append(names.get(to));
-		}*/
+			sb.append(to.name);
+		}
 		sb.append(": \"I am ");
 		sb.append(name);
 		sb.append(getFiliation());
@@ -48,8 +48,8 @@ public class Person {
 		return text.toString();
 	}
 	
-	public Speak introduce() {
-		String txt = introFactory();
+	public Speak introduce(Person to) {
+		String txt = introFactory(to);
 		Speak s = new Speak(txt);
 		return s;
 	}

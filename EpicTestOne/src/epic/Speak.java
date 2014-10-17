@@ -1,4 +1,4 @@
-
+package epic;
 public class Speak {
 	String txt;
 	
