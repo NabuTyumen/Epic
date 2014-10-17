@@ -1,5 +1,7 @@
 package solodkov.utmn.ru;
 
-class  Counter {
+public class  Counter {
+	
+	static int line=0;
 
 }
