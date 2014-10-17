@@ -1,4 +1,3 @@
-package epic;
 
 import java.util.HashMap;
 
