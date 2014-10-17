@@ -5,16 +5,16 @@ import java.util.HashMap;
 
 public class C_Epic {
 
-	private static final HashMap<Integer, String> names = Persons.getNames();
-	private static final HashMap<Integer, Integer[]> parents = Persons.getParents();
-	private static final HashMap<Integer, Character> genders =Persons.getGenders();
-	private static final HashMap<Integer, Boolean> mortals = Persons.getMortals();
+	private static final HashMap<Integer, String> names = Data.getNames();
+	private static final HashMap<Integer, Integer[]> parents = Data.getParents();
+	private static final HashMap<Integer, Character> genders =Data.getGenders();
+	private static final HashMap<Integer, Boolean> mortals = Data.getMortals();
 
 	private static String getLine(int line){
 		switch(line){
-		case 1: return introFactory(Persons.GILGAMESH, 0);
-		case 2:  return introFactory(Persons.ENKIDU, Persons.GILGAMESH);
-		case 3:  return introFactory(Persons.ISHTAR, Persons.GILGAMESH);
+		case 1: return introFactory(Data.GILGAMESH, 0);
+		case 2:  return introFactory(Data.ENKIDU, Data.GILGAMESH);
+		case 3:  return introFactory(Data.ISHTAR, Data.GILGAMESH);
 		default: return "";
 		}
 	}

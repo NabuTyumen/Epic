@@ -2,7 +2,7 @@ package epic;
 
 import java.util.HashMap;
 
-public class Persons {
+public class Data {
 	static final int GILGAMESH=1;
 	static final int ENKIDU=2;
 	static final int ISHTAR=3;
