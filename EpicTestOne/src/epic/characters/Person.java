@@ -2,10 +2,11 @@ package epic.characters;
 
 import java.util.ArrayList;
 
-
-
-
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONAware;
@@ -13,34 +14,53 @@ import org.json.simple.JSONObject;
 
 import epic.actions.Speak;
 
-
+@Entity
+@Table(name = "person")
 public class Person implements JSONAware {
+	   @Id @GeneratedValue
+	   @Column(name = "id")
 	private int id;
+	   
+	   @Column(name = "name")
 	private String name;
+	   
+	   @Column(name = "title")
 	private String title;
 	private ArrayList<Person> parents;
-	private boolean mortal;
-	private char sex;
 	
-public Person(int id,String name, String title, boolean mortal, char sex){
+	@Column(name = "mortal")
+	private boolean mortal;
+	
+	@Column(name = "gender")
+	private char gender;
+
+
+public Person(int id,String name, String title, boolean mortal, char gender){
 		setId(id);
 		setName(name);
 		setTitle(title);
 		setMortal(mortal);
-		setSex(sex);
+		setGender(gender);
 		//setParents(parents);
 		
 	}
 
-	public Person(int id,String name, String title, String mortal, String sex) {
+	public Person(int id,String name, String title, String mortal, String gender) {
 		setId(id);
 		setName(name);
 		setTitle(title);
 		setMortal("T".equals(mortal)?true:false);
-		setSex("M".equals(sex)?'M':'F');
+		setGender("M".equals(gender)?'M':'F');
 		//setParents(parents);
 		
 }
+
+	/**
+	 * Empty constructor 
+	 * needed by  Hibernate 
+	 */
+	public Person() {
+	}
 
 	/**
 	 * Method creating a Speak 
@@ -75,7 +95,7 @@ public Person(int id,String name, String title, boolean mortal, char sex){
 		StringBuilder text = new StringBuilder("");
 		if(p.get(0) != null) {
 			text.append(c.mortal?", mortal ":", immortal ");
-			text.append(c.sex=='M'?"son of ":"daughter of ");
+			text.append(c.gender=='M'?"son of ":"daughter of ");
 			text.append(p.get(0).name);
 			text.append(getFiliation(p.get(0)));
 		}
@@ -137,12 +157,12 @@ public Person(int id,String name, String title, boolean mortal, char sex){
 	public void setMortal(boolean m) {
 		this.mortal = m;
 	}
-	public char getSex() {
-		return sex;
+	public char getGender() {
+		return gender;
 	}
 
-	public void setSex(char s) {
-		this.sex = s;
+	public void setGender(char s) {
+		this.gender = s;
 	}
 
 	public int getId() {
@@ -157,7 +177,7 @@ public Person(int id,String name, String title, boolean mortal, char sex){
 		return getMortal()?"T":"F";
 	}
 	public String getSexStr() {
-		return getSex()=='M'?"M":"F";
+		return getGender()=='M'?"M":"F";
 	}
 
 	@Override

@@ -12,6 +12,7 @@ import epic.characters.Person;
 
 
 public class DBAccess {
+	private static String classpath="com.mysql.jdbc.Driver";
 	private static String url = "jdbc:mysql://localhost/uruk";//?user=nabu&password=tyumen2014
 	private static String login="nabu";
 	private static String pw="tyumen2014";
@@ -23,7 +24,7 @@ public class DBAccess {
   public static Connection getConnection(){
 	  try {
 	      // this will load the MySQL driver, each DB has its own driver
-	      Class.forName("com.mysql.jdbc.Driver");
+	      Class.forName(classpath);
 	      // setup the connection with the DB.
 	      con = DriverManager.getConnection(url,login,pw);
 
