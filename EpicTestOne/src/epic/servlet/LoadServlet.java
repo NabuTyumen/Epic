@@ -2,7 +2,6 @@ package epic.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import epic.characters.Person;
 import epic.db.DBAccess;
 
 /**
