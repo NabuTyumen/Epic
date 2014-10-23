@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import epic.actions.Act;
+import epic.characters.ManagePerson;
 import epic.characters.Person;
-import epic.db.DBAccess;
 public class Epic {
 
 	private static List<Act> actions;
@@ -13,7 +13,7 @@ public class Epic {
 
 	public static List<Person> getPersons() {
 		if(persons == null){
-			persons=DBAccess.getPersons();
+			persons=ManagePerson.getPersons();
 		}
 		return persons;
 	}

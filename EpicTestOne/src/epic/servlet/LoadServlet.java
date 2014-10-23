@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import epic.db.DBAccess;
+import epic.characters.ManagePerson;
 
 /**
  * Servlet implementation class LoadServlet
@@ -40,7 +40,7 @@ public class LoadServlet extends HttpServlet {
 		if("load".equals(action)){
 			JSONObject json = new JSONObject() ;
 			JSONArray persons = new JSONArray(); 
-			persons.addAll(DBAccess.getPersons());			 
+			persons.addAll(ManagePerson.getPersons());			 
 			json.put("persons", persons);   
 			response.setCharacterEncoding("ISO-8859-1");
 			response.setContentType("application/json");
@@ -59,7 +59,7 @@ public class LoadServlet extends HttpServlet {
 			String field=getString(request.getParameter("field"));
 			String value=getString(request.getParameter("value"));
 			
-			id=DBAccess.updatePerson(id,field,value);
+			id=ManagePerson.saveOrUpdatePerson(id,field,value); 
 			
 			JSONObject json = new JSONObject() ;
 			json.put("id", id);
@@ -78,7 +78,7 @@ public class LoadServlet extends HttpServlet {
 			
 		}else if("del".equals(action)){
 			int id = getInteger(request.getParameter("id"));
-			DBAccess.delPerson(id);
+			ManagePerson.delPerson(id);
 			JSONObject json = new JSONObject() ;
 			json.put("id", id);
 			response.setCharacterEncoding("ISO-8859-1");

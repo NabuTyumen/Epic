@@ -206,4 +206,18 @@ public Person(int id,String name, String title, boolean mortal, char gender){
 		return json.toJSONString();
 	}
 
+	public void set(String field, String value) {
+		if("name".equals(field)){
+			setName(value);
+		}else if("title".equals(field)){
+			setTitle(value);
+		} else if("gender".equals(field)){
+			setGender(value.charAt(0));
+		} else if("mortal".equals(field)){
+			setMortal("T".equals(value)?true:false);
+		}
+			
+		
+	}
+
 }
