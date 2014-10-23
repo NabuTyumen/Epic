@@ -21,7 +21,7 @@ div.image{
 div.tech{
 	border:3px solid #848484;
 	margin: 10px 0 0 10px;
-	padding: 10px 0 0 10px;
+	padding: 10px 0 10px 10px;
 	font-family: 'Courier New';
 	width: 800px;
 	color: #848484;
@@ -36,4 +36,22 @@ div.text{
 	color: #61380B;
 	width: 800px;
 	background-color: #F5ECCE;
+}
+table.uruk tr,th{
+	text-align:left;
+	font-size:18px;
+    color:#61380B;
+    vertical-align: middle;
+}
+
+select.uruk, input.uruk {
+	height:20px;
+	text-align:left;
+	font-size:14px;
+    background-color:#F5ECCE; 
+    color:#61380B;
+	font-weight:normal;
+    vertical-align: middle;
+    border:1px solid #61380B;
+    padding:2px;
 }
