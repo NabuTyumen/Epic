@@ -29,6 +29,7 @@
         <!-- ############################################ -->
  
         <mapping class="epic.characters.Person" />
- 
+         <mapping class="epic.actions.Act" />
+ 	<mapping class="epic.actions.Speak" />
     </session-factory>
 </hibernate-configuration>

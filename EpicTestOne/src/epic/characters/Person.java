@@ -1,14 +1,19 @@
 package epic.characters;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONAware;
 import org.json.simple.JSONObject;
 
@@ -26,7 +31,14 @@ public class Person implements JSONAware {
 	   
 	   @Column(name = "title")
 	private String title;
-	private ArrayList<Person> parents;
+	   
+	   @ManyToMany(cascade = CascadeType.ALL)
+	    @JoinTable(
+	            name="parent",
+	            joinColumns = @JoinColumn( name="id_child"),
+	            inverseJoinColumns = @JoinColumn( name="id_parent")
+	    )
+	private List<Person> parents;
 	
 	@Column(name = "mortal")
 	private boolean mortal;
@@ -89,7 +101,7 @@ public Person(int id,String name, String title, boolean mortal, char gender){
 	 */
 	private String  getFiliation(Person c ) {
 		if(c==null) return "";
-		ArrayList<Person> p = c.getParents();
+		List<Person> p = (List<Person> ) c.getParents();
 		if(p.isEmpty()) return "";
 		
 		StringBuilder text = new StringBuilder("");
@@ -124,7 +136,7 @@ public Person(int id,String name, String title, boolean mortal, char gender){
 	/**
 	 * @return
 	 */
-	public ArrayList<Person> getParents() {
+	public Collection<Person> getParents() {
 		if(parents == null){
 			parents = new ArrayList<Person>();
 		}

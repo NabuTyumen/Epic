@@ -1,5 +1,17 @@
 package epic.actions;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import epic.characters.Person;
 
 
@@ -14,12 +26,22 @@ import epic.characters.Person;
  * Implement write()
  * by writing on the console
  * */
- 
+@Entity
 public class Speak extends Act{
 	
+	@ManyToOne(cascade = CascadeType.ALL)
 	Person to;
-	String text;
+	@Column(name = "speech")
+	String speech;
 	
+	
+	/**
+	 * empty constructor
+	 * needed by java persistence
+	 * 
+	 */
+	public Speak(){
+	}
 	
 	/**
 	 * Constructor of a speak:
@@ -31,7 +53,7 @@ public class Speak extends Act{
 	public Speak(Person who, Person to, String text){
 		this.who=who;
 		this.to=to;
-		this.text=text;
+		this.speech=text;
 	}
 		
 	/* (non-Javadoc)
@@ -48,7 +70,7 @@ public class Speak extends Act{
 			sb.append(this.to.getName());
 		}
 		sb.append(": \"");
-		sb.append(text);
+		sb.append(speech);
 		sb.append("\".");
 		return sb.toString();
 	}
