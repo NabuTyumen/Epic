@@ -30,17 +30,21 @@ function load(){
 					var lst = data.persons;
 					$("#uruk").append($('<table>').prop({id:'taburuk'}).addClass('uruk'));
 					$('#taburuk').append($('<th>').text('Id')).append($('<th>').text('Name')).append($('<th>').text('Title')).append($('<th>').text('M/I')).append($('<th>').text('Gender'));
-					$.each(data.persons,function(i,p){
-						buildLine(p.id,p.name,p.title,p.mortal,p.gender,lst);
-					});		
-					$("#uruk").append($('<img>').prop({src:'img/add.png'}).click(add));
+					if(lst.length == 0){
+						add();
+					}else{
+						$.each(data.persons,function(i,p){
+							buildLine(p.id,p.name,p.title,p.mortal,p.gender,lst);
+						});	
+						$("#uruk").append($('<img>').prop({src:'img/add.png'}).click(add));
+					}
+	
+					
 			    }
 			});
 	}
 	
 	function buildLine(id,name,title,mortal,gender,lst){
-		
-		console.log(id +" "+name +" "+title +" "+mortal + " " + gender);
 		var tr=$('<tr>');
 		tr.append($('<td>').text(id));
 		//name
