@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -32,7 +33,7 @@ public class Person implements JSONAware {
 	   @Column(name = "title")
 	private String title;
 	   
-	   @ManyToMany(cascade = CascadeType.ALL)
+	   @ManyToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
 	    @JoinTable(
 	            name="parent",
 	            joinColumns = @JoinColumn( name="id_child"),
@@ -102,7 +103,7 @@ public Person(int id,String name, String title, boolean mortal, char gender){
 	private String  getFiliation(Person c ) {
 		if(c==null) return "";
 		List<Person> p = (List<Person> ) c.getParents();
-		if(p.isEmpty()) return "";
+		if( p==null|| p.isEmpty()) return "";
 		
 		StringBuilder text = new StringBuilder("");
 		if(p.get(0) != null) {

@@ -37,9 +37,7 @@ function load(){
 							buildLine(p.id,p.name,p.title,p.mortal,p.gender,lst);
 						});	
 						$("#uruk").append($('<img>').prop({src:'img/add.png'}).click(add));
-					}
-	
-					
+					}				
 			    }
 			});
 	}

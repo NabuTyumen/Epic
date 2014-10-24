@@ -12,19 +12,19 @@ public class Epic {
 	private static List<Person> persons;
 
 	public static List<Person> getPersons() {
-		if(persons == null){
+
 			persons=ManagePerson.getPersons();
-		}
+		
 		return persons;
 	}
 
 	public static List<Act> getActions() {
-		if(actions == null){
+
 			actions = new ArrayList<Act>();
 			for(Person p:getPersons()){
 				actions.add(p.introduce(null));
 			}
-		}
+		
 		return actions;
 	}
 
