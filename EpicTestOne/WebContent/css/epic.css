@@ -37,14 +37,14 @@ div.text{
 	width: 800px;
 	background-color: #F5ECCE;
 }
-table.uruk tr,th{
+.uruk tr,th{
 	text-align:left;
 	font-size:18px;
     color:#61380B;
     vertical-align: middle;
 }
 
-select.uruk, input.uruk {
+input.uruk, select.uruk  {
 	height:20px;
 	text-align:left;
 	font-size:14px;
@@ -55,3 +55,8 @@ select.uruk, input.uruk {
     border:1px solid #61380B;
     padding:2px;
 }
+
+select.uruk  {
+	height:26px;
+}
+

@@ -42,11 +42,11 @@ public static Person queryPerson(int id) {
     try{
     session.beginTransaction();
     	Criteria cr = session.createCriteria(Person.class);
-    	// To get records being human
-    	Person p = (Person) cr.add(Restrictions.gt("id", id))
-        .setProjection(Projections.property("id"));
+    	cr.add(Restrictions.eq("id", id));
+    	List<Person> ps = (List<Person>) cr.list();
     	session.getTransaction().commit();
-        return p;
+    	if(ps.isEmpty()) return null;
+        return ps.get(0);
     }finally {
         session.close();
     }

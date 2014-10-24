@@ -27,17 +27,20 @@ function load(){
 			    	},
 			    success: function(data) {
 					$("#uruk").empty();
+					var lst = data.persons;
 					$("#uruk").append($('<table>').prop({id:'taburuk'}).addClass('uruk'));
-					$('#taburuk').append($('<th>').text('Id')).append($('<th>').text('Name')).append($('<th>').text('Title')).append($('<th>').text('M/I')).append($('<th>').text('Gender'))
+					$('#taburuk').append($('<th>').text('Id')).append($('<th>').text('Name')).append($('<th>').text('Title')).append($('<th>').text('M/I')).append($('<th>').text('Gender')).append($('<th>').text('Parents'))
 					$.each(data.persons,function(i,p){
-						buildLine(p.id,p.name,p.title,p.mortal,p.sex);
+						buildLine(p.id,p.name,p.title,p.mortal,p.gender,lst);
 					});		
 					$("#uruk").append($('<img>').prop({src:'img/add.png'}).click(add));
 			    }
 			});
 	}
 	
-	function buildLine(id,name,title,mortal,sex){
+	function buildLine(id,name,title,mortal,gender,lst){
+		
+		console.log(id +" "+name +" "+title +" "+mortal + " " + gender);
 		var tr=$('<tr>');
 		tr.append($('<td>').text(id));
 		//name
@@ -50,12 +53,14 @@ function load(){
 		select.append($('<option>').val('T').text('mortal'));
 		select.val(mortal?'T':'F');
 		tr.append($('<td>').append(select));
-		//sex
-		select= $('<select>').addClass('uruk').prop({id:"sex_"+id}).change(sel);
+		//gender
+		select= $('<select>').addClass('uruk').prop({id:"gender_"+id}).change(sel);
 		select.append($('<option>').val('M').text('male'));
 		select.append($('<option>').val('F').text('female'));
-		select.val(sex);
+		select.val(gender);
 		tr.append($('<td>').append(select));
+		//parents
+	
 		
 		tr.append($('<td>').append($('<img>').prop({id:"del_"+id,src:'img/delete.png'}).click(del)));
 		$('#taburuk').append(tr);

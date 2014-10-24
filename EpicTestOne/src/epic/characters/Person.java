@@ -188,7 +188,7 @@ public Person(int id,String name, String title, boolean mortal, char gender){
 	public String getMortalStr() {
 		return getMortal()?"T":"F";
 	}
-	public String getSexStr() {
+	public String getGenderStr() {
 		return getGender()=='M'?"M":"F";
 	}
 
@@ -199,7 +199,7 @@ public Person(int id,String name, String title, boolean mortal, char gender){
 		json.put("name", getName());
 		json.put("title", getTitle());
 		json.put("mortal", getMortal());
-		json.put("sex", getSexStr());
+		json.put("gender", getGenderStr());
 		/*JSONArray ps = new JSONArray();
 		ps.addAll(getParents());
 		json.put("parents", ps);*/
