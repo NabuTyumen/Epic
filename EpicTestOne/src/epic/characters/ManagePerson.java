@@ -26,10 +26,6 @@ public class ManagePerson {
 			//cr.add(Restrictions.eq("mortal", true));
 			@SuppressWarnings("unchecked")
 			List <Person>list = (List <Person>) cr.list();
-
-			for(Person person:list){
-				System.out.println("Person: \"" + person.getName() +"\", " + person.getTitle() +"\", " +person.getMortalStr());
-			}
 			session.getTransaction().commit();
 			return list;
 		}finally {
