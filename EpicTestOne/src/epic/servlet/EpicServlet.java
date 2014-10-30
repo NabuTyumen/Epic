@@ -25,7 +25,6 @@ public class EpicServlet extends HttpServlet {
      */
     public EpicServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

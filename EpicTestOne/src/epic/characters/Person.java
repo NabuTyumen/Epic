@@ -48,23 +48,27 @@ public class Person implements JSONAware {
 	private char gender;
 
 
-public Person(int id,String name, String title, boolean mortal, char gender){
+public Person(int id,String name, String title, boolean mortal, char gender, List<Person> parents){
 		setId(id);
 		setName(name);
 		setTitle(title);
 		setMortal(mortal);
 		setGender(gender);
-		//setParents(parents);
+		setParents(parents);
 		
 	}
 
-	public Person(int id,String name, String title, String mortal, String gender) {
-		setId(id);
+	private void setParents(List<Person> ps) {
+	parents = ps;
+	
+}
+
+	public Person(int id,String name, String title, String mortal, String gender, List<Person> parents) {
 		setName(name);
 		setTitle(title);
 		setMortal("T".equals(mortal)?true:false);
 		setGender("M".equals(gender)?'M':'F');
-		//setParents(parents);
+		setParents(parents);
 		
 }
 
@@ -220,5 +224,57 @@ public Person(int id,String name, String title, boolean mortal, char gender){
 			
 		
 	}
+	public String toString(){
+		StringBuilder sb = new StringBuilder(id);
+		sb.append(", ");
+		sb.append(name);
+		sb.append(", ");
+		sb.append(title);
+		sb.append(", ");
+		sb.append(mortal?"mortal":"immortal");
+		sb.append(", ");
+		sb.append(gender=='M'?"male":"female");
+		sb.append(", parents:");
+		for(Person p:getParents()){
+			sb.append(p.name);
+			sb.append(" / ");
+		}
+		return sb.toString();
+		
+	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+	public boolean haveThisParents(Collection<Person> ps) {
+		for(Person p:ps){
+			if(!haveThisParent(p)) return false;
+		}
+		return true;
+	}
+	private boolean haveThisParent(Person person) {
+		for(Person p:getParents()){
+			if(p.equals(person)) return true;
+		}
+		return false;
+	}
 }

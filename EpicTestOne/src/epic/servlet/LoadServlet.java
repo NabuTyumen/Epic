@@ -13,6 +13,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import epic.characters.ManagePerson;
+import epic.characters.Person;
 
 /**
  * Servlet implementation class LoadServlet
@@ -59,10 +60,10 @@ public class LoadServlet extends HttpServlet {
 			String field=getString(request.getParameter("field"));
 			String value=getString(request.getParameter("value"));
 			
-			id=ManagePerson.saveOrUpdatePerson(id,field,value); 
+			Person p=ManagePerson.saveOrUpdatePerson(id,field,value); 
 			
 			JSONObject json = new JSONObject() ;
-			json.put("id", id);
+			json.put("id", p.getId());
 			response.setCharacterEncoding("ISO-8859-1");
 			response.setContentType("application/json");
 			response.setHeader("Cache-Control", "no-cache");

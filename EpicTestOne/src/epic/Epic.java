@@ -9,19 +9,11 @@ import epic.characters.Person;
 public class Epic {
 
 	private static List<Act> actions;
-	private static List<Person> persons;
-
-	public static List<Person> getPersons() {
-
-			persons=ManagePerson.getPersons();
-		
-		return persons;
-	}
 
 	public static List<Act> getActions() {
 
 			actions = new ArrayList<Act>();
-			for(Person p:getPersons()){
+			for(Person p:ManagePerson.getPersons()){
 				actions.add(p.introduce(null));
 			}
 		
