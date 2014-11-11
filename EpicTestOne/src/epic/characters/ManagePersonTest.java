@@ -10,14 +10,14 @@ import org.junit.Test;
 public class ManagePersonTest {
 	Person dad = new Person( 0, "Daddy", "test1", true, 'M',null);
 	Person mom = new Person( 0, "Mama", "test2", true, 'F',null);
-	List<Person> parents = getParents();
+	ArrayList<Person> parents = getParents();
 
 	Person u = new Person(0, "Nabu", "test3", true, 'M',parents);
 	Person a = new Person(0, "Naba", "test4", true, 'F',parents);
 	
 
-	private List<Person> getParents() {
-		List<Person> ps = new ArrayList<Person>();
+	private ArrayList<Person> getParents() {
+		ArrayList<Person> ps = new ArrayList<Person>();
 		ps.add(dad);
 		ps.add(mom);
 		return ps;
