@@ -1,6 +1,7 @@
 package epic.actions;
 
 import epic.characters.Person;
+import epic.characters.Speaker;
 
 
 /**
@@ -28,8 +29,8 @@ public class Speak extends Act{
 	 * @param to
 	 * @param speech
 	 */
-	public Speak(Person who, Person to, String speech){
-		this.who=who;
+	public Speak(Speaker who, Person to, String speech){
+		this.who=(Person) who;
 		this.to=to;
 		this.speech=speech;
 	}
