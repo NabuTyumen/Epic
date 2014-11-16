@@ -6,7 +6,7 @@ package designpattern.creational.factory;
 public interface AbstractClasse {
 
     /**
-     * Méthode permettant d'afficher le nom de la classe.
+     * Méthode permettant d'display le nom de la classe.
      * Cela permet de mettre en evidence la classe créée.
      */
     public void displayClass();

@@ -3,10 +3,10 @@ package designpattern.behavioral.observer;
 public class ObserverPatternMain {
 
     public static void main(String[] args) {
-        // Création de l'objet observé
+        // Creation de l'objet observé
         ConcreteObserve lObserve = new ConcreteObserve();
         
-        // Création de 2 observateurs
+        // Creation de 2 observateurs
         ConcreteObservaterA lConcreteObservateurA = new ConcreteObservaterA();
         ConcreteObservaterB lConcreteObservateurB = new ConcreteObservaterB();
         
@@ -21,16 +21,16 @@ public class ObserverPatternMain {
         lConcreteObservateurB.setObserve(lObserve);
         
         // Affiche l'état des deux observateurs
-        lConcreteObservateurA.afficher();
-        lConcreteObservateurB.afficher();
+        lConcreteObservateurA.display();
+        lConcreteObservateurB.display();
         
         // Appel d'un méthode de mise à jour
         // de l'objet observé
-        lObserve.setValeur(4);
+        lObserve.setvalue(4);
         
         // Affiche l'état des deux observateurs
-        lConcreteObservateurA.afficher();
-        lConcreteObservateurB.afficher();
+        lConcreteObservateurA.display();
+        lConcreteObservateurB.display();
         
         // Affichage :
         // ConcreteObservateurA contient 0

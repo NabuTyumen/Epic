@@ -8,11 +8,11 @@ public class BuilderPatternMain {
         Builder lBuilderB = new ConcreteBuilderB();
         Manager lManagerB = new Manager(lBuilderB);
         
-        // Appel des différentes méthodes de création
+        // Appel des différentes méthodes de Creation
         ComplexObject lProduitA = lManagerA.createObject();
         ComplexObject lProduitB = lManagerB.createObject();
         
-        // Demande l'affichage des valeurs des objets
+        // Demande l'affichage des values des objets
         // pour visualiser les différences de composition
         lProduitA.display();
         lProduitB.display();

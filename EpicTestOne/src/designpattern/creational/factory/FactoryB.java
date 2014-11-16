@@ -7,7 +7,7 @@ package designpattern.creational.factory;
 public class FactoryB extends Factory {
 
     /**
-     * Méthode de création
+     * Méthode de Creation
      * La méthode ne tient pas compte du paramètre
      * et instancie toujours un objet "ClasseB"
      * @return Un objet de classe ClasseB.

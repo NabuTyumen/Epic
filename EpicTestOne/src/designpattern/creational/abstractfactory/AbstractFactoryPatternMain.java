@@ -3,11 +3,11 @@ package designpattern.creational.abstractfactory;
 public class AbstractFactoryPatternMain {
 
     public static void main(String[] args) {
-        // Création des fabriques
+        // Creation des fabriques
         AbstractFactory lFactory1 = new ConcreteFactoryA();
         AbstractFactory lFactory2 = new ConcreteFactoryB();
         
-        // Création de deux "AbstractClasse" à partir de chaque fabrique
+        // Creation de deux "AbstractClasse" à partir de chaque fabrique
         AbstractClass lClasse1 = lFactory1.createClass();
         AbstractClass lClasse2 = lFactory2.createClass();
         

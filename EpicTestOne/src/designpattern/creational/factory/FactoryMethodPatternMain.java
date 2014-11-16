@@ -3,7 +3,7 @@ package designpattern.creational.factory;
 public class FactoryMethodPatternMain {
 
     public static void main(String[] args) {
-        // Création des fabriques
+        // Creation des fabriques
         Factory lFactoryA = new FactoryA();
         Factory lFactoryB = new FactoryB();
     

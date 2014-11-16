@@ -7,7 +7,7 @@ package designpattern.creational.factory;
 public class FactoryA extends Factory {
 
     /**
-     * Méthode de création
+     * Méthode de Creation
      * La méthode retourne un objet ClasseA, si le paramètre est true.
      * La méthode retourne un objet ClasseB, sinon.
      * @return Un objet de classe ClasseA ou ClasseB.

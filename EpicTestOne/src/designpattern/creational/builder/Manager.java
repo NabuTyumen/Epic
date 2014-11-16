@@ -12,7 +12,7 @@ public class Manager {
     
     /**
      * Crée un objet.
-     * Appelle les méthodes de création 
+     * Appelle les méthodes de Creation 
      * des parties du "Monteur".
      */
     public ComplexObject createObject() {

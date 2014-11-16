@@ -3,7 +3,7 @@ package designpattern.behavioral.interpreter;
 public class InterpreterPatternMain {
 
     public static void main(String[] args) {
-        // Création des expressions non terminales
+        // Creation des expressions non terminales
         ExpressionNoTerminale lRoot = 
                 new ExpressionNoTerminale("ROOT");
         ExpressionNoTerminale lElement1 = 
@@ -13,7 +13,7 @@ public class InterpreterPatternMain {
         ExpressionNoTerminale lElement3 = 
             new ExpressionNoTerminale("ELEMENT3");
         
-        // Création des expressions terminales
+        // Creation des expressions terminales
         ExpressionTerminale lTexte1 = 
                 new ExpressionTerminale("TEXT1");
         ExpressionTerminale lTexte2 = 

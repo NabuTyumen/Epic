@@ -12,7 +12,7 @@ public class ConcretePrototypeB extends Prototype {
     /**
      * Méthode d'affichage.
      * Indique que c'est un objet de classe ConcretePrototypeA 
-     * et la valeur de l'attribut texte. 
+     * et la value de l'attribut texte. 
      */
     public void display() {
         System.out.println("ConcretePrototypeB with text : " + text);

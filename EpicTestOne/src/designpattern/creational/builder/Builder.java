@@ -25,7 +25,7 @@ public abstract class Builder {
         return produit;
     }
     
-    // Les méthodes de création des parties 
+    // Les méthodes de Creation des parties 
     
     public abstract void createAttribute1(String pAttribut1);
     public abstract void createAttribute2(double pAttribut2);

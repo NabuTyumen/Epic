@@ -6,7 +6,7 @@ package designpattern.creational.abstractfactory;
 public class ConcreteFactoryA implements AbstractFactory {
     
     /**
-     * La méthode de création instancie un objet "ClasseA".
+     * La méthode de Creation instancie un objet "ClasseA".
      * @return Un objet "ClasseA" qui vient d'être créé.
      */
     public AbstractClass createClass() {

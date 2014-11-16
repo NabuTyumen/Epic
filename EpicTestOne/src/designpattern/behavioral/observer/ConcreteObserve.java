@@ -5,23 +5,23 @@ package designpattern.behavioral.observer;
  */
 public class ConcreteObserve extends Observe {
 
-    int valeur = 0;
+    int value = 0;
     
     /**
-     * Modifie une valeur de l'objet 
-     * et notifie la nouvelle valeur
-     * @param pValeur
+     * Modifie une value de l'objet 
+     * et notifie la nouvelle value
+     * @param pvalue
      */
-    public void setValeur(int pValeur) {
-        valeur = pValeur;
+    public void setvalue(int pvalue) {
+        value = pvalue;
         note();
     }
     
     /**
-     * Retourne la valeur de l'objet
-     * @return La valeur
+     * Retourne la value de l'objet
+     * @return La value
      */
-    public int getValeur() {
-        return valeur;
+    public int getvalue() {
+        return value;
     }
 }

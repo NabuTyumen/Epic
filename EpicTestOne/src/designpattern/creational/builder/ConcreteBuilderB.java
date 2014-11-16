@@ -7,7 +7,7 @@ package designpattern.creational.builder;
 public class ConcreteBuilderB extends Builder {
 
     /**
-     * Méthode de création de l'attribut attribut1
+     * Méthode de Creation de l'attribut attribut1
      * Précise que l'attibut2 représente une dimention en pouces
      */
     public void createAttribute1(String pAttribut1) {
@@ -15,8 +15,8 @@ public class ConcreteBuilderB extends Builder {
     }
 
     /**
-     * Méthode de création de l'attribut attribut2
-     * Stocke la valeur dans un Doucle en le convertissant en pouces
+     * Méthode de Creation de l'attribut attribut2
+     * Stocke la value dans un Doucle en le convertissant en pouces
      */
     public void createAttribute2(double pAttribut2) {
         produit.setAttribut2(new Double(pAttribut2 * 2.54));

@@ -23,7 +23,7 @@ public class ComplexObject {
     }
     
     /**
-     * Méthode permettant d'afficher l'état de l'objet
+     * Méthode permettant d'display l'état de l'objet
      * afin de permettre de mettre en évidence
      * les différences de "montage". 
      */

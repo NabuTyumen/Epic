@@ -4,7 +4,7 @@ package designpattern.behavioral.observer;
  */
 public class ConcreteObservaterB implements Observater {
 
-    private int valeur = 0;
+    private int value = 0;
     private ConcreteObserve observe;
     
     /**
@@ -20,13 +20,13 @@ public class ConcreteObservaterB implements Observater {
      * pour notifier une mise à jour
      */
     public void update() {
-        valeur = observe.getValeur();
+        value = observe.getvalue();
     }
 
     /**
-     * Affiche la valeur
+     * Affiche la value
      */
-    public void afficher() {
-        System.out.println("ConcreteObservateurB contient " + valeur);
+    public void display() {
+        System.out.println("ConcreteObservateurB contient " + value);
     }
 }
