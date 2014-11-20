@@ -3,42 +3,42 @@ package designpattern.creational.prototype;
 public class PrototypePatternMain {
 
     public static void main(String[] args) throws CloneNotSupportedException {
-        // Instancie un objet de classe ConcretePrototypeA
-        // et un autre de classe ConcretePrototypeB
-        // de "manière traditionnelle".
+        // Instanciate a object ConcretePrototypeA
+        // and a other ConcretePrototypeB
+        // in "traditional manner".
         Prototype lPrototypeA = new ConcretePrototypeA("Original");
         Prototype lPrototypeB = new ConcretePrototypeB("Original");
         
-        // Duplique les objets précédemment créés/
+        // Duplicate the objects previously created
         Prototype lPrototypeAClone = lPrototypeA.clone();
         Prototype lPrototypeBClone = lPrototypeB.clone();
         
-        // Affiche les objets : 
-        // les clones sont identiques aux originaux
+        // Display objects : 
+        // the clones are identical to the original
         lPrototypeA.display();
         lPrototypeAClone.display();
         lPrototypeB.display();
         lPrototypeBClone.display();
         
-        // Modifie les clones
-        lPrototypeAClone.setTexte("Clone (enfait)");
-        lPrototypeBClone.setTexte("Clone (enfait)");
+        // Update the clones
+        lPrototypeAClone.setTexte("Clone (in fact)");
+        lPrototypeBClone.setTexte("Clone (in fact)");
         
-        // Met en évidence que les clones
-        // sont bien des instances à part.
+        // Highlights that the clones
+        // are instance apart.
         lPrototypeA.display();
         lPrototypeAClone.display();
         lPrototypeB.display();
         lPrototypeBClone.display();
         
-        // Affichage :
-        // ConcretePrototypeA avec texte : Original
-        // ConcretePrototypeA avec texte : Original
-        // ConcretePrototypeB avec texte : Original
-        // ConcretePrototypeB avec texte : Original
-        // ConcretePrototypeA avec texte : Original
-        // ConcretePrototypeA avec texte : Clone (enfait)
-        // ConcretePrototypeB avec texte : Original
-        // ConcretePrototypeB avec texte : Clone (enfait)
+        // Displayed :
+      //ConcretePrototypeA with text : Original
+      //ConcretePrototypeA with text : Original
+      //ConcretePrototypeB with text : Original
+      //ConcretePrototypeB with text : Original
+      //ConcretePrototypeA with text : Original
+      //ConcretePrototypeA with text : Clone (in fact)
+      //ConcretePrototypeB with text : Original
+      //ConcretePrototypeB with text : Clone (in fact)
     }
 }

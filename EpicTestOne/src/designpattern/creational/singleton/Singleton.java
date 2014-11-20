@@ -3,24 +3,24 @@ package designpattern.creational.singleton;
 public class Singleton {
 
     /**
-     * La présence d'un constructeur privé supprime 
-     * le constructeur public par défaut.
+     * The presence of a private Constructor 
+     * removes the public Constructor by default.
      */
     private Singleton() {
     }
 
     /**
-     * SingletonHolder est chargé à la première exécution de
-     * Singleton.getInstance() ou au premier accès à SingletonHolder.instance ,
-     * pas avant.
+     * SingletonHolder is loaded at the first execution of
+     * Singleton.getInstance() or at the first access to SingletonHolder.instance,
+     * and not before.
      */
     private static class SingletonHolder {
         private final static Singleton instance = new Singleton();
     }
 
     /**
-     * Méthode permettant d'obtenir l'instance unique.
-     * @return L'instance du singleton.
+     * Method to get the unique instance.
+     * @return instance of singleton.
      */
     public static Singleton getInstance() {
         return SingletonHolder.instance;

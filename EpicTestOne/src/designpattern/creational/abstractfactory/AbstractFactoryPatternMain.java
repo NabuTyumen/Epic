@@ -3,22 +3,22 @@ package designpattern.creational.abstractfactory;
 public class AbstractFactoryPatternMain {
 
     public static void main(String[] args) {
-        // Creation des fabriques
+        // Creation of factories
         AbstractFactory lFactory1 = new ConcreteFactoryA();
         AbstractFactory lFactory2 = new ConcreteFactoryB();
         
-        // Creation de deux "AbstractClasse" à partir de chaque fabrique
+        // Creation of 2 "AbstractClasse" from each factory
         AbstractClass lClasse1 = lFactory1.createClass();
         AbstractClass lClasse2 = lFactory2.createClass();
         
-        // Appel d'une méthode d'"AbstractClasse" qui affiche un message
-        // Ce message permet de vérifier que chaque "AbstractClasse"
-        // est en fait une classe différente
+        // Call method from "AbstractClasse" displaying a message
+        // The message is to check that each "AbstractClasse"
+        // are in fact different classes
         lClasse1.displayClass();
         lClasse2.displayClass();
         
         // --------------------------
-        // Affichage : 
+        // Displayed : 
         // Objet de classe 'ClasseA'
         // Objet de classe 'ClasseB'
     }

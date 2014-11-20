@@ -1,8 +1,8 @@
 package designpattern.structural.bridge;
 
 /**
- * Définit l'interface de l'implémentation.
- * L'implémentation fournit deux méthodes
+ * Define interface of the implémentation.
+ * The implementation provide 2 methods
  */
 public interface Implementation {
 

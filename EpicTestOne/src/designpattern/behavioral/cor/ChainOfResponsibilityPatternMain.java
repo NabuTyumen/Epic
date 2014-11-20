@@ -23,14 +23,14 @@ public class ChainOfResponsibilityPatternMain {
         System.out.println("--> Call method with parameter  '4' : ");
         lLinkA.operation(4);
         
-        // Affichage : 
-        // --> Appel de la méthode avec paramètre '1' : 
+        // Displayed : 
+        // --> Appel de la method avec paramètre '1' : 
         // LinkB : 1 : < 2
-        // --> Appel de la méthode avec paramètre '2' : 
+        // --> Appel de la method avec paramètre '2' : 
         // LinkA : 2 : pair
-        // --> Appel de la méthode avec paramètre '3' : 
+        // --> Appel de la method avec paramètre '3' : 
         // LinkC : 3 : > 2
-        // --> Appel de la méthode avec paramètre '4' : 
+        // --> Appel de la method avec paramètre '4' : 
         // LinkA : 4 : pair
 
 	}

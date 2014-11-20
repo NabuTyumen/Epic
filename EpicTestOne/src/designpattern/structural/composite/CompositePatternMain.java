@@ -16,14 +16,14 @@ public class CompositePatternMain {
         //                                - lElement5
         //        - lElement2
         
-        // Creation des objets "Composite"
+        // Creation des objects "Composite"
         final Composite lComposite1 = new Composite("Composite 1");
         final Composite lComposite2 = new Composite("Composite 2");
         final Composite lComposite3 = new Composite("Composite 3");
         final Composite lComposite4 = new Composite("Composite 4");
         final Composite lComposite5 = new Composite("Composite 5");
         
-        // Creation des objets "Element"
+        // Creation des objects "Element"
         final Element lElement1 = new Element("Element 1");
         final Element lElement2 = new Element("Element 2");
         final Element lElement3 = new Element("Element 3");
@@ -31,25 +31,25 @@ public class CompositePatternMain {
         final Element lElement5 = new Element("Element 5");
     
         // Ajout des "Composant" afin de constituer l'arborescence
-        lComposite1.ajouter(lElement1);
-        lComposite1.ajouter(lComposite2);
-        lComposite1.ajouter(lElement2);
+        lComposite1.add(lElement1);
+        lComposite1.add(lComposite2);
+        lComposite1.add(lElement2);
         
-        lComposite2.ajouter(lComposite3);
-        lComposite2.ajouter(lComposite4);
+        lComposite2.add(lComposite3);
+        lComposite2.add(lComposite4);
         
-        lComposite3.ajouter(lElement3);
-        lComposite3.ajouter(lElement4);
+        lComposite3.add(lElement3);
+        lComposite3.add(lElement4);
         
-        lComposite4.ajouter(lComposite5);
+        lComposite4.add(lComposite5);
         
-        lComposite5.ajouter(lElement5);
+        lComposite5.add(lElement5);
         
-        // Appel de la méthode "operation()" de la racine
+        // Appel de la method "operation()" de la racine
         // afin d'display les différents "Composant"
         lComposite1.operation();
 
-        // Affichage :
+        // Displayed :
         // Op. sur un 'Composite' (Composite 1)
         // Op. sur un 'Element' (Element 1)
         // Op. sur un 'Composite' (Composite 2)

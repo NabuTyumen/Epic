@@ -1,11 +1,11 @@
 package designpattern.behavioral.memento;
 
 /**
- * Objet dont on souhaite conserver l'état.
+ * Objet dont on souhaite conserver state.
  */
 public class Creator {
 
-    // Etat à sauvegarder
+    // Etat to be stored
     private int state = 2;
 
     /**
@@ -15,7 +15,7 @@ public class Creator {
      */
     public class Memento {
 
-        // Etat sauvegardé
+        // State stored
         private int state;
         
         private Memento(int pEtat) {
@@ -39,7 +39,7 @@ public class Creator {
     }
     
     /**
-     * Sauvegarde son état dans un "Memento"
+     * Store its state in a "Memento"
      * @return
      */
     public Memento saveInMemento() {
@@ -47,7 +47,7 @@ public class Creator {
     }
     
     /**
-     * Restitue son état depuis un "Memento"
+     * Return its state from a "Memento"
      * @param pMemento
      */
     public void restoreFromMemento(Memento pMemento) {
@@ -55,7 +55,7 @@ public class Creator {
     }
     
     /**
-     * Affiche l'état de l'objet
+     * Display object state 
      */
     public void display() {
         System.out.println("The state is : " + state);

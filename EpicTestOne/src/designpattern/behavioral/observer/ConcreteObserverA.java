@@ -1,14 +1,14 @@
 package designpattern.behavioral.observer;
 /**
- * Sous-classe concrète de "Observateur"
+ * Sub-class concrete of "Observer"
  */
-public class ConcreteObservaterB implements Observater {
+public class ConcreteObserverA implements Observer {
 
     private int value = 0;
     private ConcreteObserve observe;
     
     /**
-     * Fixe l'objet observé
+     * Set object observed
      * @param pObserve
      */
     public void setObserve(ConcreteObserve pObserve) {
@@ -16,17 +16,17 @@ public class ConcreteObservaterB implements Observater {
     }
     
     /**
-     * Méthode appelée par l'objet observé
-     * pour notifier une mise à jour
+     * Method call by observed object 
+     * to notify a update
      */
     public void update() {
         value = observe.getvalue();
     }
 
     /**
-     * Affiche la value
+     * Display value
      */
     public void display() {
-        System.out.println("ConcreteObservateurB contient " + value);
+        System.out.println("ConcreteObserverA contains " + value);
     }
 }

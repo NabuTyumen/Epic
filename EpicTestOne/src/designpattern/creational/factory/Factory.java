@@ -1,31 +1,31 @@
 package designpattern.creational.factory;
 
 /**
- * Déclare la méthode de Creation.
+ * Statement of the creation method
  */
 public abstract class Factory {
     
     private boolean pIsClasseA = false;
 
     /**
-     * Méthode de Creation
+     * Creation method 
      */
     public abstract AbstractClasse createClass(boolean pIsClasseA);
     
     /**
-     * Méthode appelant la méthode de Creation.
-     * Puis, effectuant une opération.
+     * Method calling creation method.
+     * Then, processing a operation.
      */
     public void operation() {
-        // Change la value afin de varier le paramètre
-        // de la méthode de Creation
+        // Update the  value to varying a parameter
+        // of the creation method 
         pIsClasseA = !pIsClasseA;
         
-        // Récupère une instance de classe "AbstractClasse"
+        // Retrieve a instance of "AbstractClasse"
         AbstractClasse lClasse = createClass(pIsClasseA);
         
-        // Appel la méthode d'affichage de la classe
-        // afin de savoir la classe concrète
+        // Call the display method of the class
+        // to show the name of the concrete class
         lClasse.displayClass();
     }
 }

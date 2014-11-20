@@ -1,14 +1,14 @@
 package designpattern.structural.adapter;
 
 /**
- * Définit une interface qui est identifiée 
- * comme standard dans la partie cliente. 
+ * Define a interface identified
+ * as standard in the client part. 
  */
 public interface Standard {
 
     /**
-     * L'opération doit multiplier les deux nombres,
-     * puis display le résultat de l'opération
+     * The opreation have to multiplicate two number
+     * then display display the result 
      */
     public void operation(int pNombre1, int pNombre2);
 }

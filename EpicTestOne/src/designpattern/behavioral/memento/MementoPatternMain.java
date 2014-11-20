@@ -13,19 +13,19 @@ public class MementoPatternMain {
         lCreator.display();
         // Change state (2 * 2 = 4)
         lCreator.next();
-        // Sauvegarde l'état (4) dans le "Gardien" par le "Memento"
+        // Save state (4) of the "Keeper" in the "Memento"
         lKeeper.addMemento(lCreator.saveInMemento());
-        // Change l'état (4 * 4 = 16)
+        // Change state (4 * 4 = 16)
         lCreator.next();
-        // Sauvegarde l'état (16) dans le "Gardien" par le "Memento"
+        // Save state (16) dans le "Keeper" par le "Memento"
         lKeeper.addMemento(lCreator.saveInMemento());
-        // Affiche l'état (16)
+        // Display state (16)
         lCreator.display();
-        // Récupère l'état (4) de l'index 1 depuis le "Gardien"
+        // Retrieve state (4) of index 1 from the "Keeper"
         Creator.Memento lMemento1 = lKeeper.getMemento(1);
-        // Restaure l'état depuis le "Memento"
+        // Restore state from "Memento"
         lCreator.restoreFromMemento(lMemento1);
-        // Affiche l'état (4)
+        // Display state (4)
         lCreator.display();
         
         // Display : 

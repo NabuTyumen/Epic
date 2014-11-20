@@ -6,13 +6,13 @@ public class ProxyPatternMain {
         // Création du "Proxy"
         Abstraction lProxy = new Proxy();
         
-        // Appel de la méthode du "Proxy"
+        // Appel de la method du "Proxy"
         lProxy.display();
         
-        // Affichage : 
-        // --> Méthode display() du Proxy : 
-        // --> Création de l'objet Implementation au besoin
-        // --> Appel de la méthode display() de l'objet Implementation
-        // Méthode display() de la classe d'implementation
+        // Displayed : 
+        // --> Method display() du Proxy : 
+        // --> Création of the object Implementation au besoin
+        // --> Appel de la method display() of the object Implementation
+        // Method display() de la classe d'implementation
     }
 }

@@ -1,11 +1,11 @@
 package designpattern.structural.bridge;
 
 /**
- * Définit l'interface de l'abstraction
+ * Define interface of the abstraction
  */
 public abstract class Abstraction {
 
-    // Référence vers l'implémentation
+    // Reference to implementation
     private Implementation implementation;
     
     protected Abstraction(Implementation pImplementation) {
@@ -15,7 +15,7 @@ public abstract class Abstraction {
     public abstract void operation(); 
 
     /**
-     * Lien vers la méthode operationImpl1() de l'implémentation
+     * Link to the method operationImpl1() of the implementation
      * @param pMessage
      */
     protected void operationImpl1(String pMessage) {
@@ -23,7 +23,7 @@ public abstract class Abstraction {
     }
     
     /**
-     * Lien vers la méthode operationImpl2() de l'implémentation
+     * Link to the method operationImpl2() of the implementation
      * @param pMessage
      */
     protected void operationImpl2(Integer pNombre) {

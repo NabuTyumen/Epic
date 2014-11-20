@@ -1,13 +1,13 @@
 package designpattern.structural.decorator;
 
 /**
- * Définit l'interface du décorateur.
+ * Define decorator interface.
  */
 public abstract class Decorateur implements Abstraction {
     protected Abstraction abstraction;
     
     /**
-     * Le constructeur du "Decorateur" reçoit un objet "Abstraction"
+     * The constructor of "Decorator" take in a object "Abstraction"
      * @param pAbstraction
      */
     public Decorateur(final Abstraction pAbstraction) {

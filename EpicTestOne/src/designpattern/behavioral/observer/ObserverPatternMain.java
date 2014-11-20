@@ -3,39 +3,39 @@ package designpattern.behavioral.observer;
 public class ObserverPatternMain {
 
     public static void main(String[] args) {
-        // Creation de l'objet observé
+        // Creation of the observed object
         ConcreteObserve lObserve = new ConcreteObserve();
         
-        // Creation de 2 observateurs
-        ConcreteObservaterA lConcreteObservateurA = new ConcreteObservaterA();
-        ConcreteObservaterB lConcreteObservateurB = new ConcreteObservaterB();
+        // Creation of 2 observers
+        ConcreteObserverA lConcreteObserverA = new ConcreteObserverA();
+        ConcreteObserverB lConcreteObserverB = new ConcreteObserverB();
         
-        // Ajout des observateurs 
-        // à la liste des observateurs
-        // de l'objet observé
-        lObserve.addObs(lConcreteObservateurA);
-        lObserve.addObs(lConcreteObservateurB);
+        // Add observers 
+        // to the list of the observers
+        // of the observed object
+        lObserve.addObs(lConcreteObserverA);
+        lObserve.addObs(lConcreteObserverB);
         
-        // Fixe l'objet observé des observateurs
-        lConcreteObservateurA.setObserve(lObserve);
-        lConcreteObservateurB.setObserve(lObserve);
+        // Set observer of the observed object 
+        lConcreteObserverA.setObserve(lObserve);
+        lConcreteObserverB.setObserve(lObserve);
         
-        // Affiche l'état des deux observateurs
-        lConcreteObservateurA.display();
-        lConcreteObservateurB.display();
+        // Display state of the two observers
+        lConcreteObserverA.display();
+        lConcreteObserverB.display();
         
-        // Appel d'un méthode de mise à jour
-        // de l'objet observé
+        // Call of a method update
+        // of the observed object
         lObserve.setvalue(4);
         
-        // Affiche l'état des deux observateurs
-        lConcreteObservateurA.display();
-        lConcreteObservateurB.display();
+        // Display state of the 2 observers
+        lConcreteObserverA.display();
+        lConcreteObserverB.display();
         
-        // Affichage :
-        // ConcreteObservateurA contient 0
-        // ConcreteObservateurB contient 0
-        // ConcreteObservateurA contient 4
-        // ConcreteObservateurB contient 4
+        // Displayed :
+        // ConcreteObserverA contains  0
+        // ConcreteObserverB contains 0
+        // ConcreteObserverA contains 4
+        // ConcreteObserverB contains 4
     }
 }

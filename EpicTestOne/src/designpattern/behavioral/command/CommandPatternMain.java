@@ -10,7 +10,7 @@ public class CommandPatternMain {
         Command lCommandA = new ConcreteCommandA(lReceptor);
         Command lCommandB = new ConcreteCommandB(lReceptor);
 
-        // Creation and initialisation of invoker
+        // Creation and initialization of invoker
         Invoker lInvoqueur = new Invoker();
         lInvoqueur.setCommandA(lCommandA);
         lInvoqueur.setCommandB(lCommandB);
@@ -22,8 +22,8 @@ public class CommandPatternMain {
         lInvoqueur.invokeA();
         lInvoqueur.invokeB();
         
-        // Affichage :
-        // Traitement numero 1 effectué.
-        // Traitement numero 2 effectué.
+        // Displayed :
+        // Traitement number 1 done.
+        // Traitement number 2 done.
     }
 }

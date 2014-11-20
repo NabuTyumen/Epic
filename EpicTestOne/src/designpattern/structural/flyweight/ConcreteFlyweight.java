@@ -1,7 +1,7 @@
 package designpattern.structural.flyweight;
 
 /**
- * Classe dont on souhaite limiter le nombre d'instance en mémoire.
+ * Class dont on souhaite limiter le nombre d'instance en mémoire.
  */
 public class ConcreteFlyweight implements Flyweight {
 

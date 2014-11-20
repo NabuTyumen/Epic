@@ -20,16 +20,16 @@ public class InterpreterPatternMain {
                 new ExpressionTerminale("TEXT2");
 
         // Build tree
-        lRoot.ajouterExpression(lElement1);
-        lRoot.ajouterExpression(lElement2);
-        lElement2.ajouterExpression(lElement3);
-        lElement1.ajouterExpression(lTexte1);
-        lElement3.ajouterExpression(lTexte2);
+        lRoot.addExpression(lElement1);
+        lRoot.addExpression(lElement2);
+        lElement2.addExpression(lElement3);
+        lElement1.addExpression(lTexte1);
+        lElement3.addExpression(lTexte2);
         
         // Call method of the root expression
         lRoot.operation();
         
-        // Affichage : 
+        // Displayed : 
         // <ROOT>
         //     <ELEMENT1>
         //         TEXTE1

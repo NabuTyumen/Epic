@@ -1,14 +1,14 @@
 package designpattern.creational.prototype;
 
 /**
- * Définit l'interface de l'objet à dupliquer.
+ * Define l'interface of the object à dupliquer.
  */
 public abstract class Prototype implements Cloneable {
 
     protected String text;
     
     /**
-     * Constructeur de la classe.
+     * Constructor of the class.
      * @param pTexte
      */
     public Prototype(String pTexte) {
@@ -16,10 +16,10 @@ public abstract class Prototype implements Cloneable {
     }
     
     /**
-     * La méthode clone est protected dans Object.
-     * On doit la substituer pour la rendre visible.
-     * De plus, il faut que la classe implémente l'interface Cloneable. 
-     * Depuis Java5, on peut retourner un sous-type de Object.
+     * The method clone is protected into Object.
+     * We must substitute to make it visible.
+     * In addition the class must implement interface Cloneable. 
+     * Since Java5, it is possible to return a sub-type of Object.
      */
     public Prototype clone() throws CloneNotSupportedException {
         return (Prototype)super.clone();
@@ -30,7 +30,7 @@ public abstract class Prototype implements Cloneable {
     }
     
     /**
-     * Méthode d'affichage des informations de l'objet.
+     * Display method of the object's information.
      */
     public abstract void display();
 }

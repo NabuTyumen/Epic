@@ -1,7 +1,7 @@
 package designpattern.structural.flyweight;
 
 /**
- * Sous-classe de Poids-Mouche dont on ne partage pas les instances.
+ * Sub-class de Poids-Mouche dont on ne partage pas les instances.
  */
 public class ConcreteFlyweightNonShared implements Flyweight {
 

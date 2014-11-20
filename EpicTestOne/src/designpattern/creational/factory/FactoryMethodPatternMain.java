@@ -3,31 +3,31 @@ package designpattern.creational.factory;
 public class FactoryMethodPatternMain {
 
     public static void main(String[] args) {
-        // Creation des fabriques
+        // Creation of the factories
         Factory lFactoryA = new FactoryA();
         Factory lFactoryB = new FactoryB();
     
-        // L'appel de cette méthode avec FabriqueA provoquera 
-        // l'instanciation de deux classes différentes
-        System.out.println("With FabriqueA : ");
+        // Calling this method with FactoryA will cause 
+        // instantiation of two different classes 
+        System.out.println("With FactoryA : ");
         lFactoryA.operation();
         lFactoryA.operation();
         lFactoryA.operation();
-        // L'appel de cette méthode avec FabriqueB provoquera 
-        // toujours l'instanciation de la même classe
-        System.out.println("Avec la FabriqueB : ");
+        // Calling this method with FactoryB will cause 
+        // instantiation of always the same class 
+        System.out.println("With FactoryB : ");
         lFactoryB.operation();
         lFactoryB.operation();
         lFactoryB.operation();
         
-        // Affichage : 
-        // Avec la FabriqueA : 
-        // Objet de classe 'ClasseA'
-        // Objet de classe 'ClasseB'
-        // Objet de classe 'ClasseA'
-        // Avec la FabriqueB : 
-        // Objet de classe 'ClasseB'
-        // Objet de classe 'ClasseB'
-        // Objet de classe 'ClasseB'
+        // Displayed : 
+        //With FactoryA : 
+        //class designpattern.creational.factory.ClassA
+        //class designpattern.creational.factory.ClassB
+        //class designpattern.creational.factory.ClassA
+        //With FactoryB : 
+        //class designpattern.creational.factory.ClassB
+        //class designpattern.creational.factory.ClassB
+        //class designpattern.creational.factory.ClassB
     }
 }

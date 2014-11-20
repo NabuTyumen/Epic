@@ -1,9 +1,9 @@
 package designpattern.behavioral.iterator;
 
 /**
- * Définit l'interface de l'itérateur.
+ * Define l'interface de l'itérateur.
  */
-public interface Iterateur {
+public interface Iterator {
 
     /**
      * return next element

@@ -5,43 +5,43 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Implémente une expression non terminale.
+ * Implement a non terminale expression.
  */
 public class ExpressionNoTerminale extends Expression {
 
-    private String libelle;
-    private List<Expression> liste = new LinkedList<Expression>();
+    private String label;
+    private List<Expression> list = new LinkedList<Expression>();
     
     /**
-     * Constructeur permettant de fixer un attribut libelle
+     * Constructor to set a attribute label
      * @param pTexte
      */
-    public ExpressionNoTerminale(String pLibelle) {
-        libelle = pLibelle;
+    public ExpressionNoTerminale(String plabel) {
+        label = plabel;
     }
     
     /**
-     * Permet d'ajouter des expressions a l'expression non terminale
+     * Permet d'add des expressions a l'expression non terminale
      * @param pExpression
      */
-    public void ajouterExpression(Expression pExpression) {
-        liste.add(pExpression);
+    public void addExpression(Expression pExpression) {
+        list.add(pExpression);
     }
     
     /**
-     * Affiche l'attribut libelle sous forme de tag ouvrant et fermant
-     * ainsi que les expressions contenues dans la liste
-     * de l'expression non terminale
+     * Display attribute label as tag open and closed
+     * and the expression in the list
+     * of the non terminale expression 
      */
     public void operation(int pIndentation) {
         displayIndentation(pIndentation);
-        System.out.println("<" + libelle + ">");
-        Iterator<Expression> lIterator = liste.iterator();
+        System.out.println("<" + label + ">");
+        Iterator<Expression> lIterator = list.iterator();
         while(lIterator.hasNext()) {
             Expression lExpression = lIterator.next();
             lExpression.operation(pIndentation + 1);
         }
         displayIndentation(pIndentation);
-        System.out.println("</" + libelle + ">");
+        System.out.println("</" + label + ">");
     }
 }

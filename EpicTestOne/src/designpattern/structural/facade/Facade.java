@@ -1,10 +1,10 @@
 package designpattern.structural.facade;
 
 /**
- * Présente certaines fonctionnalités.
- * Dans ce cas, ne présente que la méthode "operation2()" de "ClasseA"
- * et la méthode "operation41()" utilisant "operation4()" de "ClasseB" 
- * et "operation1()" de "ClasseA".
+ * Presents some features.
+ * In this case, present only the method "operation2()" of "ClassA"
+ * and a method "operation41()" combining  "operation4()" of "ClassB" 
+ * and "operation1()" of "ClassA".
  */
 public class Facade {
 
@@ -12,21 +12,21 @@ public class Facade {
     private ClasseB classeB = new ClasseB(); 
 
     /**
-     * La méthode operation2() appelle simplement 
-     * la même méthode de ClasseA
+     * The method operation2() simply call
+     * the same method in ClasseA
      */
     public void operation2() {
-        System.out.println("--> Méthode operation2() de la classe Facade : ");
+        System.out.println("--> Method operation2() of the class Facade : ");
         classeA.operation2();
     }
     
     /**
-     * La méthode operation41() appelle  
-     * operation4() de ClasseB 
-     * et operation1() de ClasseA
+     * The method operation41() call
+     * operation4() in ClassB
+     * and operation1() in ClassA
      */
     public void operation41() {
-        System.out.println("--> Méthode operation41() de la classe Facade : ");
+        System.out.println("--> Method operation41() de la classeof the class Facade : ");
         classeB.operation4();
         classeA.operation1();
     }

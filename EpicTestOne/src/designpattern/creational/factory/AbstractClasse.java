@@ -1,13 +1,13 @@
 package designpattern.creational.factory;
 
 /**
- * Définit l'interface de l'objet instancié.
+ * Define the interface of the instantiated object.
  */
 public interface AbstractClasse {
 
     /**
-     * Méthode permettant d'display le nom de la classe.
-     * Cela permet de mettre en evidence la classe créée.
+     * Method to display the class name.
+     * This allows to evidence the class created.
      */
     public void displayClass();
 }

@@ -1,7 +1,7 @@
 package designpattern.creational.builder;
 
 /**
- * Construct the object using the methods of a "Builder".
+ * Construct a object using the methods of a "Builder".
  */
 public class Manager {
     private Builder builder;
@@ -11,14 +11,13 @@ public class Manager {
     }
     
     /**
-     * Crée un objet.
-     * Appelle les méthodes de Creation 
-     * des parties du "Monteur".
+     * Create a object.
+     * Call creating methods of "Builder".
      */
     public ComplexObject createObject() {
         builder.createObject();
         
-        builder.createAttribute1("libelle de l'objet");
+        builder.createAttribute1("label of the object");
         builder.createAttribute2(12);
         
         return builder.getObjet();

@@ -1,13 +1,13 @@
 package designpattern.structural.decorator;
 
 /**
- * Implémente l'interface générale.
+ * Implementation general interface.
  */
 public class Implementation implements Abstraction {
     
     /**
-     * Implémentation de la méthode 
-     * pour l'opération de base 
+     * Implementation of the method 
+     * for the basis operation 
      */
     public void operation() {
         System.out.println("Implementation");

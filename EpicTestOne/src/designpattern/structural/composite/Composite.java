@@ -5,55 +5,55 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Implémente un objet de l'arborescence 
- * ayant un ou des objets le composant.
+ * Implement un object de l'arborescence 
+ * ayant un ou des objects le composant.
  */
-public class Composite extends Composant {
+public class Composite extends Component {
 
-    // Liste d'objets "Composant" de l'objet "Composite"
-    private List<Composant> liste = new LinkedList<Composant>();
+    // list d'objects "Composant" of the object "Composite"
+    private List<Component> list = new LinkedList<Component>();
     
     public Composite(final String pNom) {
         super(pNom);
     }
     
     /**
-     * Méthode commune à tous les composants :
-     * Affiche qu'il s'agit d'un objet "Composite"
+     * Method commune à tous les composants :
+     * Display qu'il s'agit d'un object "Composite"
      * ainsi que le nom qu'on lui a donné, 
-     * puis appelle la méthode "operation()" 
-     * de tous les composants de cet objet. 
+     * puis appelle la method "operation()" 
+     * de tous les composants de cet object. 
      */
     public void operation() {
-        System.out.println("Op. sur un 'Composite' (" + nom + ")");
-        final Iterator<Composant> lIterator = liste.iterator();
+        System.out.println("Op. sur un 'Composite' (" + name + ")");
+        final Iterator<Component> lIterator = list.iterator();
         while(lIterator.hasNext()) {
-            final Composant lComposant = lIterator.next();
+            final Component lComposant = lIterator.next();
             lComposant.operation();
         }
     }
 
     /**
-     * Retourne la liste d'objets "Composant"
-     * @return La liste d'objets "Composant"
+     * Return la list d'objects "Composant"
+     * @return La list d'objects "Composant"
      */
-    public List<Composant> getEnfants() {
-        return liste;
+    public List<Component> getEnfants() {
+        return list;
     }
     
     /**
-     * Ajoute un objet "Composant" au "Composite"
+     * Ajoute un object "Composant" au "Composite"
      * @param pComposant
      */
-    public void ajouter(final Composant pComposant) {
-        liste.add(pComposant);
+    public void add(final Component pComposant) {
+        list.add(pComposant);
     }
     
     /**
-     * Retire un objet "Composant"
+     * Retire un object "Composant"
      * @param pComposant
      */
-    public void retirer(final Composant pComposant) {
-        liste.remove(pComposant);
+    public void retirer(final Component pComposant) {
+        list.remove(pComposant);
     }
 }

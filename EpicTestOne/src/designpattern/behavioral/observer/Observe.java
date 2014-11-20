@@ -4,37 +4,37 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Interface d'objet observé
+ * Interface d'observed object
  */
 public class Observe {
 
-    // Liste des observateurs
-    private List<Observater> listeObservateurs = 
-            new LinkedList<Observater>();
+    // list des observers
+    private List<Observer> listObservers = 
+            new LinkedList<Observer>();
     
     /**
-     * Ajouter un observateur de la liste
-     * @param pObservateur
+     * Add a observer to the list
+     * @param pObserver
      */
-    public void addObs(Observater pObservateur) {
-        listeObservateurs.add(pObservateur);
+    public void addObs(Observer pObserver) {
+        listObservers.add(pObserver);
     }
     
     /**
-     * Supprimer un observateur de la liste
-     * @param pObservateur
+     * Delete a observer from the list
+     * @param pObserver
      */
-    public void deleteObs(Observater pObservateur) {
-        listeObservateurs.remove(pObservateur);
+    public void deleteObs(Observer pObserver) {
+        listObservers.remove(pObserver);
     }
     
     /**
-     * Notifier à tous les observateurs de la liste
-     * que l'objet à été mis à jour.
+     * Notify to all the list's observers 
+     * that the object was updated.
      */
     protected void note() {
-        for(Observater lObservateur : listeObservateurs) {
-            lObservateur.update();
+        for(Observer lObserver : listObservers) {
+            lObserver.update();
         }
     }
 }

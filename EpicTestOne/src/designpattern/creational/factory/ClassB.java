@@ -1,15 +1,14 @@
 package designpattern.creational.factory;
 
-import designpattern.creational.abstractfactory.ClassA;
 
 /**
- * Sous-class de AbstractClasse.
+ * Sous-class of AbstractClasse.
  */
 public class ClassB implements AbstractClasse {
 
     /**
-     * Implémentation de la méthode d'affichage.
-     * Indique qu'il s'agit d'un objet de classe ClasseB
+     * Implementation of the method displayClass.
+     * Show that is a object of ClassB
      */
     public void displayClass() {
         System.out.println(ClassB.class.toString());

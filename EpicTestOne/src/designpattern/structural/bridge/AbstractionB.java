@@ -2,7 +2,7 @@ package designpattern.structural.bridge;
 
 
 /**
- * Sous-classe concrète de l'abstraction
+ * Sub-class concrete of abstraction
  */
 public class AbstractionB extends Abstraction {
 
@@ -11,7 +11,7 @@ public class AbstractionB extends Abstraction {
     }
     
     public void operation() {
-        System.out.println("--> Méthode operation() de AbstractionB");
+        System.out.println("--> Method operation() of AbstractionB");
         operationImpl2(9);
         operationImpl2(8);
         operationImpl1("Z");

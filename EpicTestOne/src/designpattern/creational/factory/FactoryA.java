@@ -1,16 +1,16 @@
 package designpattern.creational.factory;
 
 /**
- * Substitue la méthode "creerClasse".
- * Instancie un objet "ClasseA".
+ * Substitue la method "creerClasse".
+ * Instancie a object "ClassA".
  */
 public class FactoryA extends Factory {
 
     /**
-     * Méthode de Creation
-     * La méthode retourne un objet ClasseA, si le paramètre est true.
-     * La méthode retourne un objet ClasseB, sinon.
-     * @return Un objet de classe ClasseA ou ClasseB.
+     * Creation method 
+     * The method return a object ClassA if parameter is true.
+     * Otherwise, return a object ClassB.
+     * @return a object ClassA or ClassB.
      */
     public AbstractClasse createClass(boolean pIsClasseA) {
         if(pIsClasseA) {

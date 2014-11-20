@@ -1,16 +1,16 @@
 package designpattern.structural.decorator;
 
 /**
- * Implémente un décorateur
+ * Implement un décorateur
  */
-public class ImplDecorateurB extends Decorateur {
+public class ImplDecoratorB extends Decorateur {
     
-    public ImplDecorateurB(final Abstraction pAbstraction) {
+    public ImplDecoratorB(final Abstraction pAbstraction) {
         super(pAbstraction);
     }
 
     /**
-     * Implémentation de la méthode
+     * Implementation de la method
      * pour la décoration de "ImplDecorateurB".
      */
     public void operation() {

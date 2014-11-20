@@ -1,7 +1,7 @@
 package designpattern.creational.prototype;
 
 /**
- * Sous-class de Prototype.
+ * Subus-class of Prototype.
  */
 public class ConcretePrototypeB extends Prototype {
     
@@ -10,9 +10,9 @@ public class ConcretePrototypeB extends Prototype {
     }
     
     /**
-     * Méthode d'affichage.
-     * Indique que c'est un objet de classe ConcretePrototypeA 
-     * et la value de l'attribut texte. 
+     * Display method.
+     * Indicate that object is ConcretePrototypeB 
+     * and the value of the text attribute. 
      */
     public void display() {
         System.out.println("ConcretePrototypeB with text : " + text);

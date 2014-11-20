@@ -18,7 +18,7 @@ public class PoidsMoucheFabrique {
     }
     
     /**
-     * Retourne un "PoidsMouche" partagé
+     * Return un "PoidsMouche" partagé
      * Si la value passé en paramètre 
      * correspond à un "PoidsMouche" partagé déjà existant,
      * on le retourne. 
@@ -29,12 +29,12 @@ public class PoidsMoucheFabrique {
      */
     public Flyweight getPoidsMouche(String pvalue) {
         if(poidsMouchesPartages.containsKey(pvalue)) {
-            System.out.println("--> Retourne un PoidsMouche (" + pvalue + 
+            System.out.println("--> Return un PoidsMouche (" + pvalue + 
                     ") partagé déjà existant");
             return poidsMouchesPartages.get(pvalue);
         }
         else {
-            System.out.println("--> Retourne un PoidsMouche (" + pvalue + 
+            System.out.println("--> Return un PoidsMouche (" + pvalue + 
                     ") partagé non déjà existant");
             final ConcreteFlyweight lNouveauPoidsMouche = new ConcreteFlyweight(pvalue);
             poidsMouchesPartages.put(pvalue, lNouveauPoidsMouche);
@@ -43,13 +43,13 @@ public class PoidsMoucheFabrique {
     }
     
     /**
-     * Retourne un "PoidsMouche" non partagé.
+     * Return un "PoidsMouche" non partagé.
      * @param pvalue1
      * @param pvalue2
      * @return un "PoidsMouche"
      */
     public Flyweight getPoidsMouche(String pvalue1, String pvalue2) {
-        System.out.println("--> Retourne un PoidsMouche (" + pvalue1 + ", " + 
+        System.out.println("--> Return un PoidsMouche (" + pvalue1 + ", " + 
                 pvalue2 + ") non partagé");
         return new ConcreteFlyweightNonShared(pvalue1, pvalue2);
     }

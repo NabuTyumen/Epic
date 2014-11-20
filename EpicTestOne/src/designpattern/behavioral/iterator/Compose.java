@@ -1,12 +1,12 @@
 package designpattern.behavioral.iterator;
 
 /**
- * Définit l'interface d'un objet composé.
+ * Define l'interface d'un object composé.
  */
 public interface Compose {
 
     /**
-     * Retourne un objet "Iterateur"
+     * Return un object "Iterator"
      */
-    public Iterateur createIterateur();
+    public Iterator createIterator();
 }

@@ -1,19 +1,19 @@
 package designpattern.creational.builder;
 
 /**
- * L'objet complexe
- * Dans l'exemple, on pourrait considérer 
- * l'attribut1 comme un libellé
- * et l'attribut2 comme une dimension
- * La classe de l'attribut2 peut varier selon le "Monteur"
+ * The complexe object
+ * In this example, once could assume that
+ * attribut1 is  label
+ * and attribut2 as a dimension
+ * The class of the attribut2 could change depending of the Builder
  */
 public class ComplexObject {
 
-    // Les attributs de l'objet complexe
+    //  attributes of the complex object
     private String attribut1;
     private Number attribut2;
     
-    // Les méthodes permettant de fixes les attributs
+    // setting method of the attributes
     public void setAttribut1(String pAttribut1) {
         attribut1 = pAttribut1;
     }
@@ -23,14 +23,13 @@ public class ComplexObject {
     }
     
     /**
-     * Méthode permettant d'display l'état de l'objet
-     * afin de permettre de mettre en évidence
-     * les différences de "montage". 
+     * Method to display state of the object
+     * to show the different setting. 
      */
     public void display() {
-        System.out.println("Objet Complexe : ");
-        System.out.println("\t- attribut1 : " + attribut1);
-        System.out.println("\t- attribut2 : " + attribut2);
-        System.out.println("\t- classe de l'attribut2 : " + attribut2.getClass());
+        System.out.println("Complex Object : ");
+        System.out.println("\t- attribute1 : " + attribut1);
+        System.out.println("\t- attribute2 : " + attribut2);
+        System.out.println("\t- classe of attribute2 : " + attribut2.getClass());
     }
 }

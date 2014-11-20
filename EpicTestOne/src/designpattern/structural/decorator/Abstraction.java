@@ -1,12 +1,12 @@
 package designpattern.structural.decorator;
 
 /**
- * Définit l'interface générale.
+ * Define general interface .
  */
 public interface Abstraction {
     
     /**
-     * Méthode générale.
+     * General method.
      */
     public void operation();
 }

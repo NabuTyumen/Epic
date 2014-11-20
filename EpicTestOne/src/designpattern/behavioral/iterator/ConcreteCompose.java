@@ -1,7 +1,7 @@
 package designpattern.behavioral.iterator;
 
 /**
- * Sous-classe de l'interface "Compose".
+ * Sub-class de l'interface "Compose".
  */
 public class ConcreteCompose implements Compose {
 
@@ -11,10 +11,10 @@ public class ConcreteCompose implements Compose {
     };
 
     /**
-     * Returna object "Iterateur" permettant 
-     * de parcourir les éléments 	
+     * Returna object "Iterator" permettant 
+     * de parcourir les elements 	
      */
-    public Iterateur createIterateur() {
-        return new ConcreteIterateur(elements);
+    public Iterator createIterator() {
+        return new ConcreteIterator(elements);
     }
 }

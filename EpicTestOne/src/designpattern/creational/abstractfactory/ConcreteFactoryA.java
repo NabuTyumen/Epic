@@ -1,13 +1,13 @@
 package designpattern.creational.abstractfactory;
 
 /**
- * Implémente l'interface "AbstractFabrique".
+ * Implement interface "AbstractFactory".
  */
 public class ConcreteFactoryA implements AbstractFactory {
     
     /**
-     * La méthode de Creation instancie un objet "ClasseA".
-     * @return Un objet "ClasseA" qui vient d'être créé.
+     * The method create instantiate a object "ClassA".
+     * @return the object created.
      */
     public AbstractClass createClass() {
         return new ClassA();

@@ -1,8 +1,7 @@
 package designpattern.structural.adapter;
 
 /**
- * Fournit les fonctionnalités définies dans l'interface "Standard",
- * mais ne respecte pas l'interface.
+* Provides the functionality defined in the interface "Standard", but do not meet the interface.
  */
 public class ImplAdapte {
 
@@ -11,11 +10,11 @@ public class ImplAdapte {
     }
     
     /**
-     * Apporte la fonctionalité définie dans l'interface,
-     * mais la méthode n'a pas le bon nom 
-     * et n'accepte pas le même paramètre.
+     * Provides the functionality defined in the interface
+     * but the method do not have the good name
+     * and do not take the same parameter.
      */
     public void operationAdapte2(int pNombre) {
-        System.out.println("Adapte : Le nombre est : " + pNombre);
+        System.out.println("Adapte : Number is : " + pNombre);
     }
 }

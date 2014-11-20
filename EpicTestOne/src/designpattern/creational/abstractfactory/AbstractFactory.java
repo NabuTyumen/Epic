@@ -1,13 +1,13 @@
 package designpattern.creational.abstractfactory;
 
 /**
- * Définit l'interface de la méthode de Creation.
+ * Define interface of the method creation.
  */
 public interface AbstractFactory {
     
     /**
-     * Méthode de Creation d'un objet de classe AbstractClasse.
-     * @return L'objet créé.
+     * Method creation of object from the class AbstractClasse.
+     * @return created object.
      */
     public AbstractClass createClass();
 }

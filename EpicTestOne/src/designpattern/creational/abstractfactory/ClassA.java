@@ -1,13 +1,13 @@
 package designpattern.creational.abstractfactory;
 
 /**
- * Sous classe de AbstractClasse
- * Cette classe est instanciée par ConcreteFabriqueA
+ * Sub class of AbstractClasse
+ * This class is instantiated by ConcreteFactoryA
  */
 public class ClassA implements AbstractClass {
     
     /**
-     * Implémentation de la méthode d'affichage
+     * Implementation of method display
      */
     public void displayClass() {
         System.out.println(ClassA.class.toString());

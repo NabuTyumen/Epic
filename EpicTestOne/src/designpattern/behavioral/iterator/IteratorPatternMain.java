@@ -5,16 +5,16 @@ public class IteratorPatternMain {
     public static void main(String[] args) {
         // Creation of object "Compose"
         Compose lCompose = new ConcreteCompose();
-        // Creation of object "Iterateur"
-        Iterateur lIterateur = lCompose.createIterateur();
+        // Creation of object "Iterator"
+        Iterator lIterator = lCompose.createIterator();
         
         // Browse the elements of "Compose"
-        // using "Iterateur"
-        while(!lIterateur.end()) {
-            System.out.println(lIterateur.next());
+        // using "Iterator"
+        while(!lIterator.end()) {
+            System.out.println(lIterator.next());
         }
         
-        // Affichage : 
+        // Displayed : 
         // Bonjour
         // le
         // monde

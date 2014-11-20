@@ -3,15 +3,15 @@ package designpattern.structural.decorator;
 public class DecoratorPatternMain {
 
     public static void main(String[] args) {
-        // Creation de l'implementation et des décorateurs
+        // Creation of implementation and decorators
         final Implementation lImpl = new Implementation();
-        final ImplDecorateurB lImplDecB = new ImplDecorateurB(lImpl);
-        final ImplDecorateurA lImplDecA = new ImplDecorateurA(lImplDecB);
+        final ImplDecoratorB lImplDecB = new ImplDecoratorB(lImpl);
+        final ImplDecoratorA lImplDecA = new ImplDecoratorA(lImplDecB);
         
-        // Appel de la méthode du décorateur "conteneur"
+        // Call method of decorateur 
         lImplDecA.operation();
 
-        // Affichage :
+        // Displayed :
         // ImplDecorateurA avant
         // ImplDecorateurB avant
         // Implementation
