@@ -3,7 +3,7 @@ package designpattern.structural.facade;
 /**
  * Class implementing various features.
  */
-public class ClasseA {
+public class ClassA {
 
     public void operation1() {
         System.out.println("Method operation1() of ClassA");

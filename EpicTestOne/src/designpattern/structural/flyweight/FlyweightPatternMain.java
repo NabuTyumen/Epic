@@ -3,45 +3,46 @@ package designpattern.structural.flyweight;
 public class FlyweightPatternMain {
 
     public static void main(String[] args) {
-        // Instancie la factory
-        PoidsMoucheFabrique lFlyweightFactory = new PoidsMoucheFabrique();
+        // Instantiate factory, that create and store some Flyweights : "Alpha", "Bravo", "Charlie", "Echo"
+        FlyweightFactory lFlyweightFactory = new FlyweightFactory();
         
-        // Demande des "PoidsMouche" qui sont partagés
-        Flyweight lFlyweight1 = lFlyweightFactory.getPoidsMouche("Bonjour");
-        Flyweight lFlyweight1Bis = lFlyweightFactory.getPoidsMouche("Bonjour");
+        // Get "Flyweight" which are shared
+        Flyweight lFlyweight1 = lFlyweightFactory.getFlyweight("Alpha");
+        Flyweight lFlyweight1Bis = lFlyweightFactory.getFlyweight("Bravo");
 
-        // Display ces deux "PoidsMouche"
-        lFlyweight1.display("Contexte1");
-        lFlyweight1Bis.display("Contexte1Bis");
+        // Display this two "Flyweight"
+        lFlyweight1.display("Context1");
+        lFlyweight1Bis.display("Context1Bis");
 
-        // Display si les références pointent sur la même instance
-        // Cela est logique puisque c'est le principe de l'instance partagée.
+        // Display if the reference point to the same instance
+        // This is logical since it is the principle of shared instance.
         System.out.print("lFlyweight1 == lFlyweight1Bis : ");
         System.out.println(lFlyweight1 == lFlyweight1Bis);
 
-        // Demande un "PoidsMouche" qui ne fait pas partie des existants
-        Flyweight lFlyweight2 = lFlyweightFactory.getPoidsMouche("BonjouR");
-        Flyweight lFlyweight2Bis = lFlyweightFactory.getPoidsMouche("BonjouR");
+        // Get "Flyweight" which are not part of the existing
+        Flyweight lFlyweight2 = lFlyweightFactory.getFlyweight("Golf");
+        Flyweight lFlyweight2Bis = lFlyweightFactory.getFlyweight("Hotel");
 
-        // Display ces deux "PoidsMouche"
-        lFlyweight2.display("Contexte2");
-        lFlyweight2Bis.display("Contexte2Bis");
+        // Display this two "Flyweight"
+        lFlyweight2.display("Context2");
+        lFlyweight2Bis.display("Context2Bis");
         
-        // Demande et affiche un "PoidsMouche" non partagé
-        Flyweight lFlyweight3 = lFlyweightFactory.getPoidsMouche("value1", "value2");
+        // Get and display a non shared "Flyweight" 
+        Flyweight lFlyweight3 = lFlyweightFactory.getFlyweight("Black", "Blue");
         lFlyweight3.display(null);
                 
         // Displayed : 
-        // --> Return un PoidsMouche (Bonjour) partagé déjà existant
-        // --> Return un PoidsMouche (Bonjour) partagé déjà existant
-        // PoidsMouche avec la value : Bonjour et contexte : Contexte1
-        // PoidsMouche avec la value : Bonjour et contexte : Contexte1Bis
-        // lFlyweight1 == lFlyweight1Bis : true
-        // --> Return un PoidsMouche (BonjouR) partagé non déjà existant
-        // --> Return un PoidsMouche (BonjouR) partagé déjà existant
-        // PoidsMouche avec la value : BonjouR et contexte : Contexte2
-        // PoidsMouche avec la value : BonjouR et contexte : Contexte2Bis
-        // --> Return un PoidsMouche (value1, value2) non partagé
-        // PoidsMouche avec la value1 : value1 avec la value2 : value2
+      //--> Return a shared Flyweight (Alpha) that still exist
+      //--> Return a shared Flyweight (Bravo) that still exist
+      //Flyweight with value: Alpha and context: Context1
+      //Flyweight with value: Bravo and context: Context1Bis
+      //lFlyweight1 == lFlyweight1Bis : false
+      //--> Return a shared Flyweight (Golf) that still not exist
+      //--> Return a shared Flyweight (Hotel) that still not exist
+      //Flyweight with value: Golf and context: Context2
+      //Flyweight with value: Hotel and context: Context2Bis
+      //--> Return a non shared Flyweight (Black, Blue)
+      //Flyweight with value1 : Black with value2 : Blue 
+
     }
 }

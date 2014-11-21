@@ -1,7 +1,7 @@
 package designpattern.structural.flyweight;
 
 /**
- * Class dont on souhaite limiter le nombre d'instance en mémoire.
+ * Class about which we wish to limit the number of instances in memory
  */
 public class ConcreteFlyweight implements Flyweight {
 
@@ -12,7 +12,7 @@ public class ConcreteFlyweight implements Flyweight {
     }
 
     public void display(String pContexte) {
-        System.out.println("PoidsMouche avec la value : " + value + 
-        		" et contexte : " +pContexte);
+        System.out.println("Flyweight with value: " + value + 
+        		" and context: " +pContexte);
     }
 }

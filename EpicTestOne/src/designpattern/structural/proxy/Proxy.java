@@ -1,19 +1,19 @@
 package designpattern.structural.proxy;
 
 /**
- * Intermédiaire entre la partie cliente et l'implémentation
+ * Intermediate between the client and the Implementation
  */
 public class Proxy implements Abstraction {
 
     /**
-     * Instancie l'object "Implementation", pour appeler
-     * la vraie implémentation de la method.
+     * Instantiate the object "Implementation", to call
+     * the real implementation of the method.
      */
     public void display() {
-        System.out.println("--> Method display() du Proxy : ");
-        System.out.println("--> Création of the object Implementation au besoin");
+        System.out.println("--> Method display() of Proxy : ");
+        System.out.println("--> Creation of the object Implementation when needed");
         Implementation lImplementation = new Implementation();
-        System.out.println("--> Appel de la method display() of the object Implementation");
+        System.out.println("--> Call of the method display() of the object Implementation");
         lImplementation.display();
     }
 }

@@ -8,8 +8,8 @@ package designpattern.structural.facade;
  */
 public class Facade {
 
-    private ClasseA classeA = new ClasseA();
-    private ClasseB classeB = new ClasseB(); 
+    private ClassA classeA = new ClassA();
+    private ClassB classeB = new ClassB(); 
 
     /**
      * The method operation2() simply call

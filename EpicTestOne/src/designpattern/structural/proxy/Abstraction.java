@@ -1,12 +1,12 @@
 package designpattern.structural.proxy;
 
 /**
- * Define l'interface
+ * Define the interface
  */
 public interface Abstraction {
     
     /**
-     * Method pour laquelle on souchaite un "Proxy"
+     * Method for which we wish a "Proxy"
      */
     public void display();
 }

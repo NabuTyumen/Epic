@@ -1,7 +1,7 @@
 package designpattern.structural.flyweight;
 
 /**
- * Sub-class de Poids-Mouche dont on ne partage pas les instances.
+ * Sub-class of Flyweight wth no shared instance.
  */
 public class ConcreteFlyweightNonShared implements Flyweight {
 
@@ -14,7 +14,7 @@ public class ConcreteFlyweightNonShared implements Flyweight {
     }
     
     public void display(String pContexte) {
-        System.out.println("PoidsMouche avec la value1 : " + value1 +
-                " avec la value2 : " + value2);
+        System.out.println("Flyweight with value1 : " + value1 +
+                " with value2 : " + value2);
     }
 }
