@@ -1,7 +1,7 @@
 package gof.structural.adapter;
 
 /**
- * Implement l'interface "Standard".
+ * Implement interface "Standard".
  */
 public class ImplStandard implements Standard {
 

@@ -7,8 +7,8 @@ package gof.structural.adapter;
 public interface Standard {
 
     /**
-     * The opreation have to multiplicate two number
-     * then display display the result 
+     * The operation have to multiply two numbers
+     * then display the result 
      */
     public void operation(int pNombre1, int pNombre2);
 }
