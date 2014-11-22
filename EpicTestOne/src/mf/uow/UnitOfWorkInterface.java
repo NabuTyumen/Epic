@@ -1,13 +1,19 @@
 package mf.uow;
 
+import java.util.List;
+
+
+
 import mf.Data;
 
 public interface UnitOfWorkInterface {
 	
-
-	public void insertData(Data data);
-	public void updateData(Data data);
-	public void deleteData(Data data);
-	public void commit();
-	public void clear();
+	 List<Data> get();
+	 Data get(String id);
+	 void display();
+	 void update(Data data);
+	 void delete(String id);
+	 boolean commit();
+	 void clear();
+	
 }

@@ -1,5 +1,6 @@
 package mf;
 
+
 public class Data {
 	
 
@@ -17,6 +18,14 @@ public class Data {
 		this.value = value;
 	}
 	
+	public Data(String line) {
+		String[] array = line.split(";");
+		if(array!=null && array.length==2){
+			this.id = array[0];
+			this.value = array[1];	
+		}
+		
+	}
 	/**
 	 * method to display the content of the object
 	 * @return
@@ -66,5 +75,16 @@ public class Data {
 			return false;
 		}
 		return true;
+	}
+
+
+
+	public String getId() {
+		if(id==null) return "";
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

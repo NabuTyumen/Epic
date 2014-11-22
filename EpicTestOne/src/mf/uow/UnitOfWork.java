@@ -1,152 +1,205 @@
 package mf.uow;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.Writer;
+import java.text.Collator;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Locale;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import mf.Data;
 
 public class UnitOfWork implements UnitOfWorkInterface {
+
+	//implementation of a object Collator to sort the map (according to the Locale rules)
+	private static final Collator collator = setCollator();
+
+
+	public UnitOfWork(String fileName) {
+		super();
+		this.fileName = fileName;
+	}
 	
-	private final int INSERT=1;
-	private final int UPDATE=2;
-	private final int DELETE=3;
-	private List<Operation> os = new ArrayList<Operation>();
-	private List<Data> ds = new ArrayList<Data>();
-	final String fileName = "C:\\Users\\Bruno\\data";
-
-	@Override
-	public void insertData(Data data) {
-		os.add(new Operation(INSERT, data) );
-
+	//Construct a Collator taking as parameter a Locale build by invocation of the Factory method Locale.forLanguageTag
+	private static Collator setCollator() {
+		Collator collator= Collator.getInstance( Locale.forLanguageTag("ru-RU"));
+		collator.setStrength(Collator.SECONDARY);
+		return collator;
 	}
 
+	private String fileName;
+
+	private static final int LIST=2;
+	private static final int UPDATE=3;
+	private static final int DELETE=4;
+	
+	//list of operation
+	private List<Operation> os = new ArrayList<Operation>();
+	
+	//map of the data
+	TreeMap<String,Data> t = new TreeMap<String, Data>(collator);
+
+
+
 	@Override
-	public void updateData(Data data) {
+	public void update(Data data) {
 		os.add(new Operation(UPDATE, data) );
 
 	}
 
 	@Override
-	public void deleteData(Data data) {
-		os.add(new Operation(DELETE, data) );
+	public void delete(String id) {
+		os.add(new Operation(DELETE, new Data(id,"")) );
+
+	}
+	@Override
+	public void clear() {
+		os.clear();
+		t.clear();
 
 	}
 
 	@Override
-	public void commit() {
-		loadData();
+	public void display() {
+		os.add(new Operation(LIST,null));
+		
+	}
+
+	@Override
+	public List<Data> get() {
+		if(!os.isEmpty()){
+			commit();
+		}
+		if(loadData(null)==null) return null;
+		List<Data> list = new ArrayList<Data>();
+		for(Entry<String,Data>e:t.entrySet()){
+			list.add(e.getValue());
+		}
+		return list;
+		
+	}
+	@Override
+	public boolean commit() {
+		if(loadData(null)==null) return false;
 		for(Operation o:os){
 			process(o);
 		}
 		eraseFile();
 		printFile();
 		clear();
-	
+		return true;
+
 	}
 
 	private void printFile() {
-		   
 		try{
-		      PrintWriter out  = new PrintWriter(new FileWriter(fileName));
-		      for (Data d:ds)
-		        out.println(d.print());
-		      out.close();
-		    }
-		    catch(Exception e){
-		      e.printStackTrace();
-		    }
-		
+			
+			Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName), "UTF-8"));
+
+			for (Entry<String,Data>e:t.entrySet()){
+				out.write(e.getValue().print());
+				out.write(System.getProperty("line.separator"));
+			}	
+			out.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
 	}
 
 	private void eraseFile() {
 		try {
-			new FileOutputStream("fileName").close();
+			new FileOutputStream(fileName).close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
-
-	private void loadData() {
-		FileReader fr = null;
-		 try {
-			fr = new FileReader(fileName);
-		} catch (FileNotFoundException e1) {
-			File nomFichier = new File("Abonnés.txt");
+	
+	
+	private Data loadData(String id) {
+		t.clear();
+		File file = new File(fileName);
+		if(!file.exists() || file.isDirectory()){
 			try {
-				nomFichier.createNewFile();
+				file.createNewFile();
 			} catch (IOException e) {
-
 				e.printStackTrace();
+				return null;
 			}
 		}
-		 
-		    try{
-		   
-		    	fr = new FileReader(fileName);
-		      BufferedReader in  = new BufferedReader(new FileReader(fileName));
-		      String line;
-		      String[]array;
-		        while ((line = in.readLine()) != null) {
-		        array=line.split(";");
-		        ds.add(new Data(array[0],array[1]));
-
-		        }
-		      in.close();
-		    }
-		    catch(Exception e){
-		      e.printStackTrace();
-		    }
-		
-	}
-
-	private Data process(Operation o) {
-		switch(o.getOperation()){
-		case 1:return insert(o.getData());
-		case 2:return update(o.getData());
-		case 3:return delete(o.getData());
-		default: return null;
+		try{
+			BufferedReader in  = new BufferedReader(new FileReader(file));
+			String line;
+			Data d;
+			while ((line = in.readLine()) != null) {
+				d=new Data(line);
+				if(id==null){
+					t.put(d.getId(),d);	
+				} else if(id.equals(d.getId())){
+					in.close();
+					return d;
+				}
+				
+			}
+			in.close();
+			return new Data(id,null);
 		}
-		
+		catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	
+
+	private boolean process(Operation o) {
+		switch(o.getOperation()){
+		case 2:return _display();
+		case 3:return _update(o.getData());
+		case 4:return _delete(o.getData().getId());
+		default: return false;
+		}
+
 	}
 
-	private Data delete(Data value) {
-		ds.remove(value);
-		return null;
+
+	private boolean _display() {
+		for(Entry<String,Data>e:t.entrySet()){
+			System.out.println(e.getValue().display());
+		}
+		return true;
 	}
 
-	private Data update(Data value) {
-		ds.remove(value);
-		ds.add(value);
-		return null;
+	private boolean _delete(String id) {
+		t.remove(id);
+		return true;
 	}
 
-	private Data insert(Data value) {
-		ds.add(value);
-		return null;
+	private boolean _update(Data data) {
+		t.remove(data.getId());
+		t.put(data.getId(),data);
+		return true;
 	}
 
 	@Override
-	public void clear() {
-		os.clear();
-		ds.clear();
-
+	public Data get(String id) {
+		return loadData(id);
 	}
+
+
+	
 
 }
