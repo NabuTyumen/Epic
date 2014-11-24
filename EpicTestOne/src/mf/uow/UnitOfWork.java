@@ -8,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.Reader;
 import java.io.Writer;
 import java.text.Collator;
 import java.util.ArrayList;
@@ -16,10 +15,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+import java.util.UUID;
 
 import mf.Data;
 
 public class UnitOfWork implements UnitOfWorkInterface {
+	
+	UUID uuid = UUID.randomUUID();
 
 	//implementation of a object Collator to sort the map (according to the Locale rules)
 	private static final Collator collator = setCollator();
