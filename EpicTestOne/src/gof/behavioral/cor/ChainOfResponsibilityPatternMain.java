@@ -24,14 +24,14 @@ public class ChainOfResponsibilityPatternMain {
         lLinkA.operation(4);
         
         // Displayed : 
-        // --> Appel de la method avec paramètre '1' : 
-        // LinkB : 1 : < 2
-        // --> Appel de la method avec paramètre '2' : 
-        // LinkA : 2 : pair
-        // --> Appel de la method avec paramètre '3' : 
-        // LinkC : 3 : > 2
-        // --> Appel de la method avec paramètre '4' : 
-        // LinkA : 4 : pair
+      //--> Call method with parameter '1' : 
+      //LinkB : 1 : < 2
+      //--> Call method with parameter  '2' : 
+      //LinkA : 2 : even
+      //--> Call method with parameter  '3' : 
+      //LinkC : 3 : > 2
+      //--> Call method with parameter  '4' : 
+      //LinkA : 4 : even
 
 	}
 

@@ -21,10 +21,9 @@ public class ConcreteIterator implements Iterator {
     }
     
     /**
-     * Si l'index est supérieur ou égal
-     * à la taille du tableau,
-     * on considère que l'on a fini
-     * de parcourir les elements
+     * If index is greater or equal
+     * to the size of the table
+     * then end of the browsing
      */
     public boolean end() {
         return index >= elements.length;

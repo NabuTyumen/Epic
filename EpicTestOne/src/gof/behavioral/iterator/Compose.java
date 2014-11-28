@@ -1,12 +1,12 @@
 package gof.behavioral.iterator;
 
 /**
- * Define l'interface d'un object composé.
+ * Define interface of a composed object.
  */
 public interface Compose {
 
     /**
-     * Return un object "Iterator"
+     * Return object "Iterator"
      */
     public Iterator createIterator();
 }

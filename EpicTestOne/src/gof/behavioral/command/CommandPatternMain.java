@@ -11,19 +11,19 @@ public class CommandPatternMain {
         Command lCommandB = new ConcreteCommandB(lReceptor);
 
         // Creation and initialization of invoker
-        Invoker lInvoqueur = new Invoker();
-        lInvoqueur.setCommandA(lCommandA);
-        lInvoqueur.setCommandB(lCommandB);
+        Invoker lInvoker = new Invoker();
+        lInvoker.setCommandA(lCommandA);
+        lInvoker.setCommandB(lCommandB);
         
         // Call invocation method
         // NB : This class represents the client part. 
         //So normally the invocation does not happen in the client portion 
         //In the example, it is here for brevity
-        lInvoqueur.invokeA();
-        lInvoqueur.invokeB();
+        lInvoker.invokeA();
+        lInvoker.invokeB();
         
         // Displayed :
-        // Treatment number 1 done.
-        // Treatment number 2 done.
+        // Process number 1 done.
+        // Process number 2 done.
     }
 }

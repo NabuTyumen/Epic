@@ -15,8 +15,11 @@ public class IteratorPatternMain {
         }
         
         // Displayed : 
-        // Bonjour
-        // le
-        // monde
+      //Hello
+      //everybody
+      //,
+      //What's
+      //up
+      //?
     }
 }

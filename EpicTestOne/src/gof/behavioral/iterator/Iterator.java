@@ -1,7 +1,7 @@
 package gof.behavioral.iterator;
 
 /**
- * Define l'interface de l'itérateur.
+ * Define interface iterator.
  */
 public interface Iterator {
 
@@ -11,7 +11,7 @@ public interface Iterator {
     public String next();
     
     /**
-     * return true if iterateur
+     * return true if iterator
      * come to the last element
      */
     public boolean end();

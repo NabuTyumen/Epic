@@ -1,7 +1,7 @@
 package gof.behavioral.command;
 
 /**
- * Déclenche les commands.
+ * Trigger commands.
  */
 public class Invoker {
 
@@ -9,7 +9,7 @@ public class Invoker {
     private Command commandA;
     private Command commandB;
     
-    // Méthods to invoke commands
+    // Methods to invoke commands
     public void invokeA() {
         if(commandA != null) {
             commandA.execute();
@@ -22,7 +22,7 @@ public class Invoker {
         }
     }
     
-    // Methode to set the command
+    // Method to set the command
     public void setCommandA(Command pCommandA) {
         commandA = pCommandA;
     }

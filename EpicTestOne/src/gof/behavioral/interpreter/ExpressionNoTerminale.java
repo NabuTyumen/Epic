@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Implement a non terminale expression.
+ * Implement a non terminal expression.
  */
 public class ExpressionNoTerminale extends Expression {
 
@@ -21,7 +21,7 @@ public class ExpressionNoTerminale extends Expression {
     }
     
     /**
-     * Permet d'add des expressions a l'expression non terminale
+     * Add expressions to non terminal expression 
      * @param pExpression
      */
     public void addExpression(Expression pExpression) {
@@ -31,7 +31,7 @@ public class ExpressionNoTerminale extends Expression {
     /**
      * Display attribute label as tag open and closed
      * and the expression in the list
-     * of the non terminale expression 
+     * of the non terminal expression 
      */
     public void operation(int pIndentation) {
         displayIndentation(pIndentation);

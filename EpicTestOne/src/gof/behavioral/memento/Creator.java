@@ -1,11 +1,11 @@
 package gof.behavioral.memento;
 
 /**
- * Objet dont on souhaite conserver state.
+ * Object we want to save state.
  */
 public class Creator {
 
-    // Etat to be stored
+    // State to be stored
     private int state = 2;
 
     /**

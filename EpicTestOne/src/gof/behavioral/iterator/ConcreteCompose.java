@@ -1,7 +1,7 @@
 package gof.behavioral.iterator;
 
 /**
- * Sub-class de l'interface "Compose".
+ * Sub-class of interface "Compose".
  */
 public class ConcreteCompose implements Compose {
 
@@ -11,8 +11,8 @@ public class ConcreteCompose implements Compose {
     };
 
     /**
-     * Returna object "Iterator" permettant 
-     * de parcourir les elements 	
+     * Return  object "Iterator" to 
+     * browse elements 	
      */
     public Iterator createIterator() {
         return new ConcreteIterator(elements);

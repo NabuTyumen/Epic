@@ -3,7 +3,7 @@ package gof.behavioral.interpreter;
 public class InterpreterPatternMain {
 
     public static void main(String[] args) {
-        // Creation des expressions non terminales
+        // Creation of the non terminal expressions 
         ExpressionNoTerminale lRoot = 
                 new ExpressionNoTerminale("ROOT");
         ExpressionNoTerminale lElement1 = 
@@ -13,7 +13,7 @@ public class InterpreterPatternMain {
         ExpressionNoTerminale lElement3 = 
             new ExpressionNoTerminale("ELEMENT3");
         
-        // Creation des expressions terminales
+        // Creation of terminal expressions 
         ExpressionTerminale lTexte1 = 
                 new ExpressionTerminale("TEXT1");
         ExpressionTerminale lTexte2 = 
