@@ -21,7 +21,7 @@ import mf.Data;
 
 public class UnitOfWork implements UnitOfWorkInterface {
 	
-	UUID uuid = UUID.randomUUID();
+	//UUID uuid = UUID.randomUUID();
 
 	//implementation of a object Collator to sort the map (according to the Locale rules)
 	private static final Collator collator = setCollator();

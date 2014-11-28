@@ -3,7 +3,7 @@ package gof.structural.decorator;
 /**
  * Implement un décorateur
  */
-public class ImplDecoratorB extends Decorateur {
+public class ImplDecoratorB extends Decorator {
     
     public ImplDecoratorB(final Abstraction pAbstraction) {
         super(pAbstraction);

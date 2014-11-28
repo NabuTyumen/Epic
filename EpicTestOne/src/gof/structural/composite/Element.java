@@ -1,8 +1,8 @@
 package gof.structural.composite;
 
 /**
- * Implement un object de l'arborescence 
- * n'ayant pas d'object le composant.
+ * Implement a object of the tree
+ * without Component.
  */
 public class Element extends Component {
 
@@ -11,11 +11,11 @@ public class Element extends Component {
     }
 
     /**
-     * Method commune à tous les composants :
-     * Display qu'il s'agit d'un object "Element"
-     * ainsi que le nom qu'on lui a donné.
+     * Common method of all Component:
+     * Display if it is a "Element"
+     * with the name given.
      */
     public void operation() {
-        System.out.println("Op. sur un 'Element' (" + name + ")");
+        System.out.println("Operation on a 'Element' (" + name + ")");
     }
 }

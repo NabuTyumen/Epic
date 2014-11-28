@@ -18,7 +18,7 @@ public abstract class Component {
     }
     
     /**
-     * Opération commune à tous les "Composant"
+     * Common method of all "Component"
      */
     public abstract void operation();
 }

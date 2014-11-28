@@ -5,12 +5,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Implement un object de l'arborescence 
- * ayant un ou des objects le composant.
+ * Implement a object of the tree
  */
 public class Composite extends Component {
 
-    // list d'objects "Composant" of the object "Composite"
+    // list objects "Composite" of the object "Composite"
     private List<Component> list = new LinkedList<Component>();
     
     public Composite(final String pNom) {
@@ -18,14 +17,14 @@ public class Composite extends Component {
     }
     
     /**
-     * Method commune à tous les composants :
-     * Display qu'il s'agit d'un object "Composite"
-     * ainsi que le nom qu'on lui a donné, 
-     * puis appelle la method "operation()" 
-     * de tous les composants de cet object. 
+     * Common method of all component :
+     * Display that it is a "Composite"
+     * and the given name, 
+     * then call method "operation()" 
+     * of all the component of the object. 
      */
     public void operation() {
-        System.out.println("Op. sur un 'Composite' (" + name + ")");
+        System.out.println("Operation on a 'Composite' (" + name + ")");
         final Iterator<Component> lIterator = list.iterator();
         while(lIterator.hasNext()) {
             final Component lComposant = lIterator.next();
@@ -34,15 +33,15 @@ public class Composite extends Component {
     }
 
     /**
-     * Return la list d'objects "Composant"
-     * @return La list d'objects "Composant"
+     * Return objects list "Composite"
+     * @return 
      */
-    public List<Component> getEnfants() {
+    public List<Component> getChilds() {
         return list;
     }
     
     /**
-     * Ajoute un object "Composant" au "Composite"
+     * Add a object "Component" to the "Composite"
      * @param pComposant
      */
     public void add(final Component pComposant) {
@@ -50,10 +49,10 @@ public class Composite extends Component {
     }
     
     /**
-     * Retire un object "Composant"
+     * Remove a object "Component"
      * @param pComposant
      */
-    public void retirer(final Component pComposant) {
+    public void remove(final Component pComposant) {
         list.remove(pComposant);
     }
 }
