@@ -2,14 +2,14 @@ package gof.behavioral.command;
 
 public class ConcreteCommandB implements Command {
 
-	 private Receptor recepteur;
+	 private Receptor receptor;
 	    
 	    public ConcreteCommandB(Receptor pRecepteur) {
-	        recepteur = pRecepteur;
+	        receptor = pRecepteur;
 	    }
 	    
 	    public void execute() {
-	        recepteur.action2();
+	        receptor.action2();
 	    }
 
 }

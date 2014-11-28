@@ -23,7 +23,7 @@ public class CommandPatternMain {
         lInvoqueur.invokeB();
         
         // Displayed :
-        // Traitement number 1 done.
-        // Traitement number 2 done.
+        // Treatment number 1 done.
+        // Treatment number 2 done.
     }
 }
