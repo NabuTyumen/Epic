@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mf.Data;
-import mf.uow.UnitOfWork;
 import mf.uow.UnitOfWorkInterface;
 
 public class IdentityMap {

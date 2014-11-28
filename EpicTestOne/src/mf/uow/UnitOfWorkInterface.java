@@ -2,8 +2,6 @@ package mf.uow;
 
 import java.util.List;
 
-
-
 import mf.Data;
 
 public interface UnitOfWorkInterface {
