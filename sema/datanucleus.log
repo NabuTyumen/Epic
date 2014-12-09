@@ -1,0 +1,4 @@
+17:11:57,497 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 4.0.4) for API "JPA"
+17:11:58,053 (main) ERROR [DataNucleus.MetaData] - 
+17:11:58,193 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 0 classes.
+17:11:58,193 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed and no classes were enhanced. Consult the log for full details
